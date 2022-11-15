@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const DB = 'aura';
+const DB = 'music';
 
 module.exports = (DB) => {
     mongoose.connect(`mongodb://127.0.0.1/${DB}`)

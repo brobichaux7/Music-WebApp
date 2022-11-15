@@ -1,7 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const app = express();
-const DB = 'aura'
+const DB = 'music'
 
 
 app.use(cors());
