@@ -37,7 +37,7 @@
 }
 
 .login h4 {
-    margin-right: 160px;
+    margin-right: 250px;
 }
 
 .login p {
@@ -58,4 +58,43 @@
     height: 80px;
     width: 80px;
     margin-bottom: 70px;
+}
+
+.login label {
+    margin-right: 20px;
+}
+
+.register {
+    text-align: center;
+    margin-top: 7%;
+}
+
+.register h4 {
+    margin-right: 240px;
+}
+
+.register p {
+    margin-top: 80px;
+    margin-left: 80px;
+}
+
+.register input {
+    margin-top: 20px;
+    padding-right: 60px;
+
+}
+
+.register button {
+    margin-top: 60px;
+    margin-left: 220px;
+}
+
+.register img {
+    height: 80px;
+    width: 80px;
+    margin-bottom: 70px;
+}
+
+.register label {
+    margin-right: 20px;
 }
