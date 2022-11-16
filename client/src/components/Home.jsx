@@ -4,6 +4,8 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 
 const Home = () => {
 
+  
+
   return (
     <div>
     <Navbar bg="primary" variant="dark" expand="lg">
