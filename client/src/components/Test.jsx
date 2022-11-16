@@ -24,7 +24,7 @@ const Test = () => {
 			setToken(tokenresponse.data.access_token);
 
 			// Api call for retrieving tracks data
-			axios(`https://api.spotify.com/v1/search?q=drake&type=artist&limit=10&offset=5`,{
+			axios(`https://api.spotify.com/v1/search?q=tyler%20the%20creator&type=artist&offset=5`,{
 				'method': 'GET',
 				'headers': {
 					'Content-Type': 'application/json',
@@ -45,7 +45,8 @@ const Test = () => {
             tracks.map((person, i) => {
                 return (
                     <div key={i}>
-                        <p>{person.name}</p>
+                        <h1>{person.name}</h1>
+                        <img src={person.images[0].url} alt="" />
                     </div>
                 )
             })
