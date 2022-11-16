@@ -18,7 +18,7 @@ const Home = () => {
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="me-auto">
           <Nav.Link href="#home">Browse</Nav.Link>
-          <Nav.Link href="#searchal">Search Albums</Nav.Link>
+          <Nav.Link href="search/albums">Search Albums</Nav.Link>
           <Nav.Link href="#searchar">Search Artists</Nav.Link>
           </Nav>
           <Nav>
