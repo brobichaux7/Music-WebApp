@@ -6,7 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import {Table} from 'react-bootstrap'
 
 const ArtistResults = () => {
-    const [token, setToken] = useState('');
+
 	const [results, setResults] = useState([]);
 
     const { q } = useParams();
@@ -58,7 +58,7 @@ const ArtistResults = () => {
                             <tr key={i}>
                                 <td>
                                     {
-                                        result.data.visuals.avatarImage == null ? <img src="https://twirpz.files.wordpress.com/2015/06/twitter-avi-gender-balanced-figure.png?w=160" />
+                                        result.data.visuals.avatarImage == null ? <img src="https://twirpz.files.wordpress.com/2015/06/twitter-avi-gender-balanced-figure.png?w=160" alt=" "/>
                                         : <img src={result.data.visuals.avatarImage.sources[1].url} alt="" width="160"/>
                                     }
                                 </td>
