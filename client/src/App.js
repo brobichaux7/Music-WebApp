@@ -19,7 +19,9 @@ function App() {
       <Route path='/register' element={<Register/>}/>
 
       <Route path='/1' element={<Test/>}/>
+      
       <Route path='/search/albums' element={<SearchAlbum />} />
+      
       <Route path='/search/albums/results/:q' element={<AlbumResults />} />
 
       </Routes>
