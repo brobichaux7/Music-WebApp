@@ -6,7 +6,6 @@ import {Navbar, Container, Nav, Button, Table} from 'react-bootstrap'
 
 const DisplayAlbum = () => {
 
-    const [token, setToken] = useState('');
     const [albumInfo, setAlbumInfo] = useState([]);
     const [songs, setSongs] = useState([]);
 
@@ -79,10 +78,10 @@ const DisplayAlbum = () => {
             <Button>Login</Button>&nbsp;&nbsp;&nbsp;
             </Link>
         </Navbar>
-        <div>
+        <div className={musicStyle.displayCenter}>
             <h1>{albumInfo.name}</h1>
             {
-                albumInfo.images == undefined ? <img src="https://twirpz.files.wordpress.com/2015/06/twitter-avi-gender-balanced-figure.png?w=160" />
+                albumInfo.images === undefined ? <img src="https://twirpz.files.wordpress.com/2015/06/twitter-avi-gender-balanced-figure.png?w=160" alt=" "/>
                 : <img src={albumInfo.images[1].url} alt=" " width="200"/>
             }
             <p>
@@ -92,7 +91,7 @@ const DisplayAlbum = () => {
                             <div key={i}>
                                 <p>{song.track_number}</p>
                                 <p>{song.name}</p>
-                                <p>{song.preview_url}</p>
+                                {/* <p>{song.preview_url}</p> */}
                                 <p>{song.explicit}</p>
                             </div>
                         )
