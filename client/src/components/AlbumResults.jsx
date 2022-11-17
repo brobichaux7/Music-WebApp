@@ -2,6 +2,11 @@ import React, {useState, useEffect} from 'react'
 import axios from 'axios'
 import AlbumForm from './AlbumForm'
 import { useParams } from 'react-router-dom'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import {Table} from 'react-bootstrap'
+
+
+
 
 const AlbumResults = () => {
   
@@ -41,11 +46,11 @@ const AlbumResults = () => {
 
     return (
     <div>
-        <AlbumForm />
-        <table>
+        <AlbumForm/>
+        <Table bordered hover>
             <thead>
                 <tr>
-                    <th scope='col'>Image</th>
+                    <th scope='col'>Album Cover</th>
                     <th scope='col'>Album Name</th>
                     <th scope='col'>Artist</th>
                     <th scope='col'>Release Date</th>
@@ -65,7 +70,7 @@ const AlbumResults = () => {
                     })
                 }
             </tbody>
-        </table>
+        </Table>
     </div>
   )
 }

@@ -1,7 +1,7 @@
 .topCarousel {
     margin-bottom: 50px;
-    background-color: black;
     padding: 50px;
+    background-color: #484cb5;
 }
 
 .topCarousel img {
@@ -11,8 +11,8 @@
 
 .albumCarousel {
     margin-bottom: 50px;
-    background-color: black;
     padding: 50px;
+    background-color: #484cb5;
 }
 
 .albumCarousel img {
@@ -22,8 +22,8 @@
 }
 
 .artistCarousel{
-    background-color: black;
     padding: 50px;
+    background-color: #484cb5;
 }
 
 .artistCarousel img {
@@ -98,3 +98,37 @@
 .register label {
     margin-right: 20px;
 }
+
+.searchAlbum {
+    margin-top: 80px;
+    margin-bottom: 80px;
+    margin-left: 760px;
+}
+
+.searchAlbum input {
+    height: 40px;
+    width: 300px;
+    margin-right: 10px;
+}
+
+.searchAlbum button {
+    height: 37px;
+}
+
+.searchAlbum h1 {
+    margin-bottom: 50px;
+}
+
+.imgAlb{
+    width: 200px;
+    height: 200px;
+}
+
+.mag {
+    margin-right: 20px;
+}
+
+.homeBody {
+    background-color: #484cb5;
+}
+
