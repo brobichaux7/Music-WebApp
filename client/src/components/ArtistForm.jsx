@@ -1,14 +1,13 @@
 import React, {useState} from 'react'
 import { useNavigate } from 'react-router-dom';
 
-const SearchAlbum = () => {
-  
+const ArtistForm = () => {
     const [searchItem, setSearchItem] = useState('');
     const navigate = useNavigate();
 
     const onSubmitHandler = (e) => {
         e.preventDefault();
-        navigate("/search/albums/results/" + searchItem)
+        navigate("/search/artists/results/" + searchItem)
     }
 
     return (
@@ -21,4 +20,4 @@ const SearchAlbum = () => {
   )
 }
 
-export default SearchAlbum
+export default ArtistForm
