@@ -7,6 +7,7 @@ import Test from  './components/Test'
 import Register from './components/Register';
 import ArtistForm from './components/ArtistForm';
 import ArtistResults from './components/ArtistResults';
+import DisplayAlbum from './components/DisplayAlbum';
 
 
 function App() {
@@ -29,6 +30,8 @@ function App() {
       <Route path='/search/artists' element={<ArtistForm />} />
 
       <Route path='/search/artists/results/:q' element={<ArtistResults />} />
+
+      <Route path='/album/:id' element={<DisplayAlbum />} />
 
       </Routes>
     </div>
