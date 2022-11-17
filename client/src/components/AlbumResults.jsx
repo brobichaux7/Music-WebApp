@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import axios from 'axios'
 import AlbumForm from './AlbumForm'
-import { useParams } from 'react-router-dom'
+import { useParams, Link, useNavigate } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import {Table} from 'react-bootstrap'
 
@@ -13,7 +13,12 @@ const AlbumResults = () => {
     const [token, setToken] = useState('');
 	const [results, setResults] = useState([]);
 
-    const { q } = useParams();
+    const { q, id } = useParams();
+    const navigate = useNavigate();
+
+    const goToAlbum = (albumId) => {
+        navigate("/album/" + albumId)
+    }
 
     useEffect(()=>{
 
@@ -61,8 +66,8 @@ const AlbumResults = () => {
                     results.map((result, i) => {
                         return (
                             <tr key={result.id}>
-                                <td><img src={result.images[2].url} alt="" /></td>
-                                <td>{result.name}</td>
+                                <td><img src={result.images[0].url} alt="" width="160"/></td>
+                                <td><Link to={`/album/${result.id}`}>{result.name}</Link></td>
                                 <td>{result.artists[0].name}</td>
                                 <td>{result.release_date}</td>
                             </tr>
