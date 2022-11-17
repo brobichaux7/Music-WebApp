@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios';
 import { useParams, Link } from 'react-router-dom';
 import musicStyle from './Home.module.css'
-import {Navbar, Container, Nav, Button} from 'react-bootstrap'
+import {Navbar, Container, Nav, Button, Table} from 'react-bootstrap'
 
 const DisplayAlbum = () => {
 
@@ -25,7 +25,6 @@ const DisplayAlbum = () => {
           
           axios.request(options).then(function (res) {
               console.log(res.data.albums[0]);
-              console.log("yes")
               setAlbumInfo(res.data.albums[0]);
               setSongs(res.data.albums[0].tracks.items)
               
@@ -43,8 +42,8 @@ const DisplayAlbum = () => {
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="me-auto">
                 <Nav.Link href="/">Home</Nav.Link>
-                <Nav.Link href="search/albums">Search Albums</Nav.Link>
-                <Nav.Link href="search/artists">Search Artists</Nav.Link>
+                <Nav.Link href="/search/albums">Search Albums</Nav.Link>
+                <Nav.Link href="/search/artists">Search Artists</Nav.Link>
                 </Nav>
                 <Nav>
                 </Nav>
@@ -56,31 +55,47 @@ const DisplayAlbum = () => {
         </Navbar>
         <div className={musicStyle.displayCenter}>
             <h1>{albumInfo.name}</h1>
-            {
-                albumInfo.images === undefined ? (
-                <div className={musicStyle.container}>
-                    <div className={musicStyle.spin} id={musicStyle.loader}></div>
-                    <div className={musicStyle.spin} id={musicStyle.loader2}></div>
-                    <div className={musicStyle.spin} id={musicStyle.loader3}></div>
-                    <div className={musicStyle.spin} id={musicStyle.loader4}></div>
-                    <span id={musicStyle.text}>LOADING...</span>
-                </div>)
-                : <img src={albumInfo.images[1].url} alt=" " width="200"/>
-            }
-            <p>
+            <div>
                 {
-                    songs.map((song, i) => {
-                        return (
-                            <div key={i}>
-                                <p>{song.track_number}</p>
-                                <p>{song.name}</p>
-                                {/* <p>{song.preview_url}</p> */}
-                                <p>{song.explicit}</p>
-                            </div>
-                        )
-                    })
+                    albumInfo.images === undefined ? (
+                    <div className={musicStyle.container}>
+                        <div className={musicStyle.spin} id={musicStyle.loader}></div>
+                        <div className={musicStyle.spin} id={musicStyle.loader2}></div>
+                        <div className={musicStyle.spin} id={musicStyle.loader3}></div>
+                        <div className={musicStyle.spin} id={musicStyle.loader4}></div>
+                        <span id={musicStyle.text}>LOADING...</span>
+                    </div>)
+                    : <img src={albumInfo.images[1].url} alt=" " width="200"/>
                 }
-            </p>
+            </div>
+            <Table bordered hover>
+                <thead>
+                    <tr>
+                        <th scope='col'>Track Number</th>
+                        <th scope='col'>Song Name</th>
+                        <th scope='col'>Explicit</th>
+                        <th scope='col'>Song Preview</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {
+                        songs.map((song, i) => {
+                            return (
+                                <tr key={i}>
+                                    <td>{song.track_number}</td>
+                                    <td><Link to={song.external_urls.spotify}>{song.name}</Link></td>
+                                    <td>{song.explicit ? "Yes" : "No"}</td>
+                                    <td>
+                                        <audio controls>
+                                            <source src={song.preview_url} />
+                                        </audio>
+                                    </td>
+                                </tr>
+                            )
+                        })
+                    }
+                </tbody>
+            </Table>
         </div>
     </fieldset>
   )
