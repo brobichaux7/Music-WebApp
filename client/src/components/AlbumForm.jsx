@@ -25,7 +25,7 @@ const AlbumForm = () => {
             <Nav className="me-auto">
             <Nav.Link href="/">Home</Nav.Link>
               <Nav.Link href="search/albums">Search Albums</Nav.Link>
-              <Nav.Link href="#searchar">Search Artists</Nav.Link>
+              <Nav.Link href="search/artists">Search Artists</Nav.Link>
               </Nav>
               <Nav>
               </Nav>

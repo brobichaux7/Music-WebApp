@@ -2,6 +2,8 @@ import React, {useState, useEffect} from 'react'
 import axios from 'axios'
 import ArtistForm from './ArtistForm'
 import { useParams } from 'react-router-dom'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import {Table} from 'react-bootstrap'
 
 const ArtistResults = () => {
     const [token, setToken] = useState('');
@@ -39,7 +41,7 @@ const ArtistResults = () => {
     return (
     <div>
         <ArtistForm />
-        <table>
+        <Table bordered hover>
             <thead>
                 <tr>
                     <th scope='col'>Image</th>
@@ -55,7 +57,7 @@ const ArtistResults = () => {
                             <tr key={i}>
                                 <td>
                                     {
-                                        result.data.visuals.avatarImage == null ? <img src="https://twirpz.files.wordpress.com/2015/06/twitter-avi-gender-balanced-figure.png?w=400&zoom=2" />
+                                        result.data.visuals.avatarImage == null ? <img src="https://twirpz.files.wordpress.com/2015/06/twitter-avi-gender-balanced-figure.png?w=160" />
                                         : <img src={result.data.visuals.avatarImage.sources[1].url} alt="" />
                                     }
                                 </td>
@@ -67,7 +69,7 @@ const ArtistResults = () => {
                     })
                 }
             </tbody>
-        </table>
+        </Table>
     </div>
   )
 }

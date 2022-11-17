@@ -132,3 +132,28 @@
     background-color: #484cb5;
 }
 
+.searchArtist {
+    margin-top: 80px;
+    margin-bottom: 80px;
+    margin-left: 760px;
+}
+
+.searchArtist input {
+    height: 40px;
+    width: 300px;
+    margin-right: 10px;
+}
+
+.searchArtist button {
+    height: 37px;
+}
+
+.searchArtist h1 {
+    margin-bottom: 50px;
+}
+
+.imgResult {
+    height: 185px;
+    width: 185px;
+}
+
