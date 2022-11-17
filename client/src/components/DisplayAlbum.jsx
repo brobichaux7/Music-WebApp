@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios';
 import { useParams, Link } from 'react-router-dom';
 import musicStyle from './Home.module.css'
-import {Navbar, Container, Nav, Button, Table} from 'react-bootstrap'
+import {Navbar, Container, Nav, Button} from 'react-bootstrap'
 
 const DisplayAlbum = () => {
 
@@ -51,8 +51,10 @@ const DisplayAlbum = () => {
           
           axios.request(options).then(function (res) {
               console.log(res.data.albums[0]);
+              console.log("yes")
               setAlbumInfo(res.data.albums[0]);
               setSongs(res.data.albums[0].tracks.items)
+              
           }).catch(function (error) {
               console.error(error);
           });
@@ -81,7 +83,14 @@ const DisplayAlbum = () => {
         <div className={musicStyle.displayCenter}>
             <h1>{albumInfo.name}</h1>
             {
-                albumInfo.images === undefined ? <img src="https://twirpz.files.wordpress.com/2015/06/twitter-avi-gender-balanced-figure.png?w=160" alt=" "/>
+                albumInfo.images === undefined ? (
+                <div className={musicStyle.container}>
+                    <div className={musicStyle.spin} id={musicStyle.loader}></div>
+                    <div className={musicStyle.spin} id={musicStyle.loader2}></div>
+                    <div className={musicStyle.spin} id={musicStyle.loader3}></div>
+                    <div className={musicStyle.spin} id={musicStyle.loader4}></div>
+                    <span id={musicStyle.text}>LOADING...</span>
+                </div>)
                 : <img src={albumInfo.images[1].url} alt=" " width="200"/>
             }
             <p>
