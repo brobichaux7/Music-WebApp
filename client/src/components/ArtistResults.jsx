@@ -63,8 +63,6 @@ const ArtistResults = () => {
                                     }
                                 </td>
                                 <td>{result.data.profile.name}</td>
-                                {/* <td>{result.genres[0]}</td> */}
-                                {/* <td>{result.followers.data}</td> */}
                             </tr>
                         )
                     })
