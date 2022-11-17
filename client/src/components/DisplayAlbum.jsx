@@ -13,32 +13,6 @@ const DisplayAlbum = () => {
 
     useEffect(()=>{
 
-		// // Api call for retrieving token
-		// axios('https://accounts.spotify.com/api/token', {
-		// 	'method': 'POST',
-		// 	'headers': {
-		// 		 'Content-Type':'application/x-www-form-urlencoded',
-		// 		 'Authorization': 'Basic ' + btoa('48fec7da4a694ec0a3241be884d99abe:86310732c9a042dbb498327161686623'),
-		// 	},
-		// 	data: 'grant_type=client_credentials'
-		// }).then(tokenresponse => {
-		// 	console.log(tokenresponse.data.access_token);
-		// 	setToken(tokenresponse.data.access_token);
-
-		// 	// Api call for retrieving results data
-		// 	axios(`https://api.spotify.com/v1/albums/${id}?market=US`,{
-		// 		'method': 'GET',
-		// 		'headers': {
-		// 			'Content-Type': 'application/json',
-		// 			'Accept': 'application/json',
-		// 			'Authorization': 'Bearer ' + tokenresponse.data.access_token
-		// 		}
-		// 	}).then(res => {
-		// 		console.log(res.data);
-		// 		setAlbumInfo(res.data);
-		// 	}).catch(error=> console.log(error))
-		// }).catch(error => console.log(error));
-
         const options = {
             method: 'GET',
             url: 'https://spotify23.p.rapidapi.com/albums/',
