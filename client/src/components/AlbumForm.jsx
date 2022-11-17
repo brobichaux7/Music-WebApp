@@ -5,7 +5,7 @@ import {Navbar, Container, Nav, Button, Table} from 'react-bootstrap'
 import {Link} from 'react-router-dom'
 
 
-const SearchAlbum = () => {
+const AlbumForm = () => {
   
     const [searchItem, setSearchItem] = useState('');
     const navigate = useNavigate();
@@ -46,4 +46,4 @@ const SearchAlbum = () => {
   )
 }
 
-export default SearchAlbum
+export default AlbumForm

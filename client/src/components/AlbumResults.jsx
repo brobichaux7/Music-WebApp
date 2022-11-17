@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import axios from 'axios'
-import SearchAlbum from './SearchAlbum'
+import AlbumForm from './AlbumForm'
 import { useParams } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import {Table} from 'react-bootstrap'
@@ -37,16 +37,16 @@ const AlbumResults = () => {
 					'Accept': 'application/json',
 					'Authorization': 'Bearer ' + tokenresponse.data.access_token
 				}
-			}).then(albumres => {
-				console.log(albumres.data.albums.items);
-				setResults(albumres.data.albums.items);
+			}).then(res => {
+				console.log(res.data.albums.items);
+				setResults(res.data.albums.items);
 			}).catch(error=> console.log(error))
 		}).catch(error => console.log(error));
 	}, [q])
 
     return (
     <div>
-        <SearchAlbum/>
+        <AlbumForm/>
         <Table bordered hover>
             <thead>
                 <tr>
@@ -61,7 +61,7 @@ const AlbumResults = () => {
                     results.map((result, i) => {
                         return (
                             <tr key={result.id}>
-                                <td><img src={result.images[1].url} alt="" /></td>
+                                <td><img src={result.images[2].url} alt="" /></td>
                                 <td>{result.name}</td>
                                 <td>{result.artists[0].name}</td>
                                 <td>{result.release_date}</td>
