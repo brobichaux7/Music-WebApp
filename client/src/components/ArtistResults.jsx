@@ -58,7 +58,7 @@ const ArtistResults = () => {
                                 <td>
                                     {
                                         result.data.visuals.avatarImage == null ? <img src="https://twirpz.files.wordpress.com/2015/06/twitter-avi-gender-balanced-figure.png?w=160" />
-                                        : <img src={result.data.visuals.avatarImage.sources[1].url} alt="" />
+                                        : <img src={result.data.visuals.avatarImage.sources[1].url} alt="" width="160"/>
                                     }
                                 </td>
                                 <td>{result.data.profile.name}</td>
