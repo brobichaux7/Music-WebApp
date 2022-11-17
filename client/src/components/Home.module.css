@@ -157,3 +157,7 @@
     width: 185px;
 }
 
+.displayCenter {
+    width: 80%;
+    margin: 0 auto;
+}
