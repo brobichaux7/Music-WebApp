@@ -1,6 +1,6 @@
 import React from 'react'
 
-import {Navbar, Container, Nav, Form, Button, Carousel} from 'react-bootstrap'
+import {Navbar, Container, Nav, Button, Carousel} from 'react-bootstrap'
 import {Link} from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import musicStyle from './Home.module.css'
@@ -10,14 +10,14 @@ const Home = () => {
   
 
   return (
-    <div>
+    <div className={musicStyle.homeBody}>
     <Navbar bg="primary" variant="dark" expand="lg">
     <Container>
       <Navbar.Brand href="#home">LOGO</Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="me-auto">
-          <Nav.Link href="#home">Browse</Nav.Link>
+          <Nav.Link href="/">Home</Nav.Link>
           <Nav.Link href="search/albums">Search Albums</Nav.Link>
           <Nav.Link href="#searchar">Search Artists</Nav.Link>
           </Nav>
@@ -39,8 +39,7 @@ src="https://www.billboard.com/wp-content/uploads/media/tyler-the-creator-asap-r
             alt="Image One"
           />
           <Carousel.Caption>
-            <h3>New Music</h3>
-            <p>Artist Name</p>
+
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item interval={5000}>
@@ -50,8 +49,7 @@ src="https://cloudfront-us-east-1.images.arcpublishing.com/ajc/YSFLLDLLQHM5HFBKE
             alt="Image Two"
           />
           <Carousel.Caption>
-            <h3>New Music</h3>
-            <p>Artist Name</p>
+
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>
