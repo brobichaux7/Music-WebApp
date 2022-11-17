@@ -33,6 +33,7 @@ const ArtistResults = () => {
           axios.request(options).then(function (response) {
               console.log(response.data.artists.items);
               setResults(response.data.artists.items);
+              console.log(q)
           }).catch(function (error) {
               console.error(error);
           });
