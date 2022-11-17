@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import { useNavigate } from 'react-router-dom';
 import musicStyle from './Home.module.css'
-import {Navbar, Container, Nav, Button, Table} from 'react-bootstrap'
+import {Navbar, Container, Nav, Button} from 'react-bootstrap'
 import {Link} from 'react-router-dom'
 
 
