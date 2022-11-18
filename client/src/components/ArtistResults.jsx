@@ -4,10 +4,12 @@ import ArtistForm from './ArtistForm'
 import { useParams } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import {Table} from 'react-bootstrap'
+import musicStyle from './Home.module.css'
 
 const ArtistResults = () => {
 
 	const [results, setResults] = useState([]);
+    const [loaded, setLoaded] =useState(false)
 
     const { q } = useParams();
 
@@ -33,42 +35,51 @@ const ArtistResults = () => {
           axios.request(options).then(function (response) {
               console.log(response.data.artists.items);
               setResults(response.data.artists.items);
-              console.log(q)
+              setLoaded(true);
           }).catch(function (error) {
               console.error(error);
           });
 	}, [q])
 
     return (
-    <div>
+    <div className={musicStyle.bgColor}>
         <ArtistForm />
-        <Table bordered hover>
-            <thead>
-                <tr>
-                    <th scope='col'>Image</th>
-                    <th scope='col'>Name</th>
-                    <th scope='col'>Genre</th>
-                    <th scope='col'>Followers</th>
-                </tr>
-            </thead>
-            <tbody>
-                {
-                    results.map((result, i) => {
-                        return (
-                            <tr key={i}>
-                                <td>
-                                    {
-                                        result.data.visuals.avatarImage == null ? <img src="https://twirpz.files.wordpress.com/2015/06/twitter-avi-gender-balanced-figure.png?w=160" alt=" "/>
-                                        : <img src={result.data.visuals.avatarImage.sources[1].url} alt="" width="160"/>
-                                    }
-                                </td>
-                                <td>{result.data.profile.name}</td>
-                            </tr>
-                        )
-                    })
-                }
-            </tbody>
-        </Table>
+        {
+            loaded ? (
+            <Table bordered hover className={musicStyle.tableWidth}>
+                <thead>
+                    <tr>
+                        <th scope='col' width="10%"></th>
+                        <th scope='col' width="70%">Name</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {
+                        results.map((result, i) => {
+                            return (
+                                <tr key={i}>
+                                    <td>
+                                        {
+                                            result.data.visuals.avatarImage == null ? <img src="https://twirpz.files.wordpress.com/2015/06/twitter-avi-gender-balanced-figure.png?w=160" alt=" "/>
+                                            : <img src={result.data.visuals.avatarImage.sources[1].url} alt="" width="160"/>
+                                        }
+                                    </td>
+                                    <td>{result.data.profile.name}</td>
+                                </tr>
+                            )
+                        })
+                    }
+                </tbody>
+            </Table>
+        ): (
+            <div className={musicStyle.container}>
+                <div className={musicStyle.spin} id={musicStyle.loader}></div>
+                <div className={musicStyle.spin} id={musicStyle.loader2}></div>
+                <div className={musicStyle.spin} id={musicStyle.loader3}></div>
+                <div className={musicStyle.spin} id={musicStyle.loader4}></div>
+                <span id={musicStyle.text}>LOADING...</span>
+            </div>
+        )}
     </div>
   )
 }
