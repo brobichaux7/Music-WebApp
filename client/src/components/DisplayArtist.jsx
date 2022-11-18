@@ -7,15 +7,21 @@ import {Navbar, Container, Nav, Button, Table} from 'react-bootstrap'
 
 const DisplayArtist = () => {
     
+    // result variables
     const [artistInfo, setArtistInfo] = useState({});
     const [topTracks, setTopTracks] = useState([]);
     const [related, setRelated] = useState([]);
+
+    // if results are loaded or not variables
     const [loaded, setLoaded] = useState(false);
 
+    // input variable for url
     const { id } = useParams();
+
+    // redirect
     const navigate = useNavigate();
 
-
+    // grabing search results from api
     useEffect(()=>{
 
         const options = {
@@ -39,16 +45,19 @@ const DisplayArtist = () => {
 
 	}, [id])
 
+    // converts string to html code
     function createMarkup() {
         return {__html: artistInfo.profile.biography.text};
       }
 
+      // redirect to album
       const goToAlbum = (i) => {
         const oneId = topTracks[i].track.album.uri
         const oneAlbumId = oneId.split(':');
         navigate(`/album/` + oneAlbumId[2])
     }
 
+    // redirect to artist
     const goToArtist = (i) => {
         navigate('/artist/' + related[i].id) 
     }
@@ -57,7 +66,7 @@ const DisplayArtist = () => {
     <fieldset className={musicStyle.bgColor}>
         <Navbar bg="primary" variant="dark" expand="lg">
             <Container>
-            <Navbar.Brand href="#home">LOGO</Navbar.Brand>
+            <Navbar.Brand href="/"><img src="https://media.tenor.com/FkvBwOZT4LQAAAAC/pepe-pepe-the-frog.gif" alt="" width="40px"/></Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="me-auto">

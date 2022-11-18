@@ -12,16 +12,16 @@ const Home = () => {
 
   return (
     <div>
-      <Transition/>
-    <motion.div
+      {/* <Transition/> */}
+    {/* <motion.div
     initial={{ opacity: 0 }}
     animate={{ opacity: 1 }}
     exit={{ opacity: 0 }}
-    transition={{delay:1.5, duration: 3.5}}>
+    transition={{delay:1.5, duration: 3.5}}> */}
     <div className={musicStyle.homeBody}>
     <Navbar bg="primary" variant="dark" expand="lg">
     <Container>
-      <Navbar.Brand href="#home">AURA</Navbar.Brand>
+      <Navbar.Brand href="/"><img src="https://media.tenor.com/FkvBwOZT4LQAAAAC/pepe-pepe-the-frog.gif" alt="" width="40px"/></Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="me-auto">
@@ -119,7 +119,7 @@ src="https://media.tenor.com/P98RZR_l9q4AAAAC/travis-scott-fire.gif"
       </Carousel>
       </div>
     </div>
-    </motion.div>
+    {/* </motion.div> */}
     </div>
   )
 }

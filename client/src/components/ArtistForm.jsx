@@ -5,9 +5,14 @@ import {Navbar, Container, Nav, Button, Table} from 'react-bootstrap'
 import {Link} from 'react-router-dom'
 
 const ArtistForm = () => {
+
+    // search variable
     const [searchItem, setSearchItem] = useState('');
+
+    // redirect
     const navigate = useNavigate();
 
+    // redirects to search results
     const onSubmitHandler = (e) => {
         e.preventDefault();
         navigate("/search/artists/results/" + searchItem)
@@ -17,7 +22,7 @@ const ArtistForm = () => {
         <div>
         <Navbar bg="primary" variant="dark" expand="lg">
         <Container>
-          <Navbar.Brand href="/">AURA</Navbar.Brand>
+          <Navbar.Brand href="/"><img src="https://media.tenor.com/FkvBwOZT4LQAAAAC/pepe-pepe-the-frog.gif" alt="" width="40px"/></Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">

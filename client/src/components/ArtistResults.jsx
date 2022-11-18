@@ -8,15 +8,21 @@ import musicStyle from './Home.module.css'
 
 const ArtistResults = () => {
 
+    // result variables
 	const [results, setResults] = useState([]);
+
+    // if results are loaded or not variables
     const [loaded, setLoaded] =useState(false)
 
+    // input variable for url
     const { q } = useParams();
+
+    // redirect
     const navigate = useNavigate();
 
     useEffect(()=>{
 
-		// Api call for retrieving token
+		// grabing search results from api
 		const options = {
             method: 'GET',
             url: 'https://spotify81.p.rapidapi.com/search',
@@ -36,6 +42,7 @@ const ArtistResults = () => {
           });
 	}, [q])
 
+     // redirects to artist display page
     const goToArtist = (i) => {
         const oneId = results[i].data.uri
         const oneArtistId = oneId.split(':');
