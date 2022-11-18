@@ -11,7 +11,7 @@ import musicStyle from './Home.module.css'
 
 const AlbumResults = () => {
   
-	const [results, setResults] = useState([]);
+	const [results, setResults] = useState({});
     const [loaded, setLoaded] =useState(false)
 
     const { q } = useParams();
@@ -38,6 +38,7 @@ const AlbumResults = () => {
         axios.request(options).then(function (res) {
             console.log(res.data.albums.items);
             setResults(res.data.albums.items)
+            console.log(results);
             setLoaded(true);
         }).catch(function (error) {
             console.error(error);
@@ -48,7 +49,6 @@ const AlbumResults = () => {
         console.log(i)
         const oneId = results[i].data.uri
         const oneAlbumId = oneId.split(':');
-        console.log(oneAlbumId)
         navigate(`/album/` + oneAlbumId[2])
     }
 
