@@ -50,6 +50,21 @@ module.exports.login = async(req, res) => {
         .json({ msg: "success!" });
 }
 
+//Get logged in user
+
+module.exports.getLoggedInUser = (requestObj,responseObj)=>{
+
+    const decodedJWT = jwt.decode(requestObj.cookies.usertoken, {complete:true})
+    // decodedJWT.payload.id
+    User.findOne({_id: decodedJWT.payload.id })
+        .then(foundUser=>{
+            responseObj.json({results: foundUser})
+        })
+        .catch(err=>{
+            responseObj.json(err)
+        })
+}
+
 //Logout
 
 module.exports.logout = (req, res) => {
@@ -72,6 +87,22 @@ module.exports.findAllUsers = (requestObj,responseObj) => {
     User.find()
         .then((allDaUsers) => {
             responseObj.json(allDaUsers)
+        })
+        .catch(err => {
+            console.log("Server Error")
+            responseObj.json(err)
+        });
+
+}
+
+//Update 
+module.exports.updateUser = (requestObj,responseObj) => {
+    User.findByIdAndUpdate(
+        requestObj.params.id ,
+        requestObj.body,
+        { new: true, runValidators: true })
+        .then(updatedUser => {
+            responseObj.json(updatedUser)
         })
         .catch(err => {
             console.log("Server Error")
