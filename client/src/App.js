@@ -1,4 +1,4 @@
-import {Routes, Route} from 'react-router-dom';
+import {Routes, Route, Navigate} from 'react-router-dom';
 import AlbumResults from './components/AlbumResults';
 import Home from './components/Home';
 import AlbumForm from './components/AlbumForm';
@@ -37,6 +37,8 @@ function App() {
       <Route path='artist/:id' element={<DisplayArtist />} />
 
       <Route path='edit/profile/' element={<EditProfile />} />
+
+      <Route path='*' element={<Navigate to='/' />} />
       
       </Routes>
     </div>
