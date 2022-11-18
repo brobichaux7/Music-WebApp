@@ -8,6 +8,7 @@ import Register from './components/Register';
 import ArtistForm from './components/ArtistForm';
 import ArtistResults from './components/ArtistResults';
 import DisplayAlbum from './components/DisplayAlbum';
+import DisplayArtist from './components/DisplayArtist';
 
 
 function App() {
@@ -32,6 +33,8 @@ function App() {
       <Route path='/search/artists/results/:q' element={<ArtistResults />} />
 
       <Route path='/album/:id' element={<DisplayAlbum />} />
+      
+      <Route path='artist/:id' element={<DisplayArtist />} />
 
       </Routes>
     </div>
