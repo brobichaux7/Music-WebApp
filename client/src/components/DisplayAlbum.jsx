@@ -1,17 +1,25 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 import musicStyle from './Home.module.css'
 import {Navbar, Container, Nav, Button, Table} from 'react-bootstrap'
 
 const DisplayAlbum = () => {
 
+    // result variables
     const [albumInfo, setAlbumInfo] = useState([]);
     const [songs, setSongs] = useState([]);
+
+    // if results are loaded or not variables
     const [loaded, setLoaded] = useState(true);
 
+    // input variable for url
     const { id } = useParams();
 
+    // redirect
+    const navigate = useNavigate();
+
+    // grabing search results from api
     useEffect(()=>{
 
         const options = {
@@ -35,11 +43,15 @@ const DisplayAlbum = () => {
           });
 	}, [id])
 
+    const goToArtist = () => {
+        navigate('/artist/' + albumInfo.artists[0].id) 
+    }
+
   return (
     <fieldset className={musicStyle.bgColor}>
         <Navbar bg="primary" variant="dark" expand="lg">
             <Container>
-            <Navbar.Brand href="#home">AURA</Navbar.Brand>
+            <Navbar.Brand href="/"><img src="https://media.tenor.com/FkvBwOZT4LQAAAAC/pepe-pepe-the-frog.gif" alt="" width="40px"/></Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="me-auto">
@@ -70,7 +82,7 @@ const DisplayAlbum = () => {
                     : <div className={musicStyle.dFlex}>
                         <div>
                             <h1><b>{albumInfo.name}</b></h1>
-                            <h5>By: {albumInfo.artists[0].name}</h5>
+                            <h5>By: <a onClick={goToArtist}>{albumInfo.artists[0].name}</a></h5>
                             <div className={musicStyle.dFlexAlbum}>
                                 <div>
                                     <img src={albumInfo.images[0].url} alt=" " width="200"/>

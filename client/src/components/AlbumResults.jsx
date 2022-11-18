@@ -11,12 +11,19 @@ import musicStyle from './Home.module.css'
 
 const AlbumResults = () => {
   
+    // result variables
 	const [results, setResults] = useState({});
+
+    // if results are loaded or not variables
     const [loaded, setLoaded] =useState(false)
 
+    // input variable for url
     const { q } = useParams();
+
+    // redirect
     const navigate = useNavigate();
 
+    // grabing search results from api
     useEffect(()=>{
 		
         const options = {
@@ -38,6 +45,7 @@ const AlbumResults = () => {
           });
 	}, [q])
 
+    // redirects to album display page
     const goToAlbum = (i) => {
         console.log(i)
         const oneId = results[i].data.uri

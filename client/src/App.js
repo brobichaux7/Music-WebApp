@@ -9,6 +9,7 @@ import ArtistForm from './components/ArtistForm';
 import ArtistResults from './components/ArtistResults';
 import DisplayAlbum from './components/DisplayAlbum';
 import DisplayArtist from './components/DisplayArtist';
+import EditProfile from './components/EditProfile';
 
 function App() {
   return (
@@ -35,6 +36,8 @@ function App() {
       
       <Route path='artist/:id' element={<DisplayArtist />} />
 
+      <Route path='edit/profile/' element={<EditProfile />} />
+      
       </Routes>
     </div>
   );
