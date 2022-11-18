@@ -45,8 +45,8 @@ const UserNavBar = () => {
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="me-auto">
         <Nav.Link href="/">Home</Nav.Link>
-          <Nav.Link to="/search/albums">Search Albums</Nav.Link>
-          <Nav.Link to="/search/artists">Search Artists</Nav.Link>
+          <Nav.Link href="/search/albums">Search Albums</Nav.Link>
+          <Nav.Link href="/search/artists">Search Artists</Nav.Link>
           </Nav>
           <Nav>
           </Nav>

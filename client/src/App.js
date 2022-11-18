@@ -10,6 +10,7 @@ import ArtistResults from './components/ArtistResults';
 import DisplayAlbum from './components/DisplayAlbum';
 import DisplayArtist from './components/DisplayArtist';
 import EditProfile from './components/EditProfile';
+import UserProfile from './components/UserProfile';
 
 function App() {
   return (
@@ -34,7 +35,9 @@ function App() {
 
       <Route path='/album/:id' element={<DisplayAlbum />} />
       
-      <Route path='artist/:id' element={<DisplayArtist />} />
+      <Route path='/artist/:id' element={<DisplayArtist />} />
+
+      <Route path='/profile/:id' element={<UserProfile />} />
 
       <Route path='edit/profile/' element={<EditProfile />} />
 

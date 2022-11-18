@@ -31,6 +31,7 @@ const UserProfile = () => {
       {
         loggedIn ? <UserNavBar /> : <GuestNavBar />
       }
+      
     </div>
   )
 }
