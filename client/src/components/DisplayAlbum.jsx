@@ -8,6 +8,7 @@ const DisplayAlbum = () => {
 
     const [albumInfo, setAlbumInfo] = useState([]);
     const [songs, setSongs] = useState([]);
+    const [loaded, setLoaded] = useState(true);
 
     const { id } = useParams();
 
@@ -23,11 +24,12 @@ const DisplayAlbum = () => {
             }
           };
           
-          axios.request(options).then(function (res) {
-              console.log(res.data.albums[0]);
-              setAlbumInfo(res.data.albums[0]);
-              setSongs(res.data.albums[0].tracks.items)
-              
+          axios.request(options).then(function (response) {
+              console.log(response.data.albums[0]);
+              setAlbumInfo(response.data.albums[0]);
+              setLoaded(false);
+              setSongs(response.data.albums[0].tracks.items);
+              console.log(songs)
           }).catch(function (error) {
               console.error(error);
           });
@@ -57,7 +59,7 @@ const DisplayAlbum = () => {
             
             <div>
                 {
-                    albumInfo.images === undefined ? (
+                    loaded ? (
                     <div className={musicStyle.container}>
                         <div className={musicStyle.spin} id={musicStyle.loader}></div>
                         <div className={musicStyle.spin} id={musicStyle.loader2}></div>
@@ -71,7 +73,7 @@ const DisplayAlbum = () => {
                             <h5>By: {albumInfo.artists[0].name}</h5>
                             <div className={musicStyle.dFlexAlbum}>
                                 <div>
-                                    <img src={albumInfo.images[1].url} alt=" " width="200"/>
+                                    <img src={albumInfo.images[0].url} alt=" " width="200"/>
                                 </div>
                                 <div className={musicStyle.centerText}>
                                     <p><b>Label:</b> {albumInfo.label}</p>
