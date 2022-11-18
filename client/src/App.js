@@ -11,6 +11,7 @@ import DisplayAlbum from './components/DisplayAlbum';
 import DisplayArtist from './components/DisplayArtist';
 import EditProfile from './components/EditProfile';
 import UserProfile from './components/UserProfile';
+import UserRatings from './components/UserRatings';
 
 function App() {
   return (
@@ -39,7 +40,9 @@ function App() {
 
       <Route path='/profile/:id' element={<UserProfile />} />
 
-      <Route path='/edit/profile/' element={<EditProfile />} />
+      <Route path='/edit/profile/:id' element={<EditProfile />} />
+
+      <Route path='/musicList/:id' element={<UserRatings />} />
 
       <Route path='*' element={<Navigate to='/' />} />
       
