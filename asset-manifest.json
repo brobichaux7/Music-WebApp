@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/%7BMusic-WebApp%7D/static/css/main.b14f058d.css",
+    "main.js": "/%7BMusic-WebApp%7D/static/js/main.09f8338d.js",
+    "static/js/787.c4e7f8f9.chunk.js": "/%7BMusic-WebApp%7D/static/js/787.c4e7f8f9.chunk.js",
+    "index.html": "/%7BMusic-WebApp%7D/index.html",
+    "main.b14f058d.css.map": "/%7BMusic-WebApp%7D/static/css/main.b14f058d.css.map",
+    "main.09f8338d.js.map": "/%7BMusic-WebApp%7D/static/js/main.09f8338d.js.map",
+    "787.c4e7f8f9.chunk.js.map": "/%7BMusic-WebApp%7D/static/js/787.c4e7f8f9.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b14f058d.css",
+    "static/js/main.09f8338d.js"
+  ]
+}
