@@ -47,6 +47,7 @@ const Register = () => {
     }
     
     return(
+        <div className={musicStyle.registerBody}>
         <div className={musicStyle.register}>
         <img src='https://media.tenor.com/FkvBwOZT4LQAAAAC/pepe-pepe-the-frog.gif'/>
         <h4>REGISTER</h4>
@@ -63,6 +64,7 @@ const Register = () => {
         <button>Create Account</button>
         <p>already have an account?<a href="/login"> log in here</a></p>
         </form>
+        </div>
         </div>
     )
 }
