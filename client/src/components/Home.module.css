@@ -248,3 +248,9 @@
 .tableBgColor {
     background-color: white;
 }
+
+.tableWidth {
+    width: 50% !important;
+    margin: 0 auto;
+    background-color: white;
+}

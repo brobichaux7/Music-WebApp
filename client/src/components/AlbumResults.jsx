@@ -53,11 +53,11 @@ const AlbumResults = () => {
     }
 
     return (
-    <div>
+    <div className={musicStyle.bgColor}>
         <AlbumForm/>
         {
             loaded ? (
-            <Table bordered hover>
+            <Table bordered hover className={musicStyle.tableWidth}>
                 <thead>
                     <tr>
                         <th scope='col'>Album Cover</th>

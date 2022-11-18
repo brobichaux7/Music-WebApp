@@ -42,17 +42,15 @@ const ArtistResults = () => {
 	}, [q])
 
     return (
-    <div>
+    <div className={musicStyle.bgColor}>
         <ArtistForm />
         {
             loaded ? (
-            <Table bordered hover>
+            <Table bordered hover className={musicStyle.tableWidth}>
                 <thead>
                     <tr>
-                        <th scope='col'>Image</th>
-                        <th scope='col'>Name</th>
-                        <th scope='col'>Genre</th>
-                        <th scope='col'>Followers</th>
+                        <th scope='col' width="10%"></th>
+                        <th scope='col' width="70%">Name</th>
                     </tr>
                 </thead>
                 <tbody>
