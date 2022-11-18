@@ -52,7 +52,8 @@ const Login = () => {
         <label>Password:</label>
         <input type="password" onChange={(e) => setPassword(e.target.value)} value={password}/><br/>
         <button>Submit</button>
-        <p>don't have an account?<a href="/register"> register here</a></p>
+        <p>don't have an account? <a href="/register">register here</a></p>
+        <p>continue as a guest? <a href="/">click here</a></p>
         </form>
         </div>
         </div>
