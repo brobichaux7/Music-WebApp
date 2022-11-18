@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import musicStyle from './Home.module.css'
 import {Navbar, Container, Nav, Button, Table} from 'react-bootstrap'
 import {Link} from 'react-router-dom'
-import { motion } from "framer-motion";
 
 const ArtistForm = () => {
     const [searchItem, setSearchItem] = useState('');

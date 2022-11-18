@@ -77,7 +77,7 @@ const DisplayAlbum = () => {
                                     <p><b>Label:</b> {albumInfo.label}</p>
                                     <p><b>Number of Songs:</b> {albumInfo.total_tracks}</p>
                                     <p><b>Popularity Rating:</b> {albumInfo.popularity}</p>
-                                    <a href={albumInfo.external_urls.spotify}><b>Click here to see album in spotify</b></a><br/><br/>
+                                    <a href={albumInfo.external_urls.spotify} target="_blank"><b>Click here to see album in spotify</b></a><br/><br/>
                                     <p>
                                         <b>Have you Listened to this?</b>&nbsp;&nbsp;&nbsp;
                                         <input type="checkbox" />
@@ -118,7 +118,7 @@ const DisplayAlbum = () => {
                             return (
                                 <tr key={i}>
                                     <td>{song.track_number}</td>
-                                    <td><a href={song.external_urls.spotify}>{song.name}</a></td>
+                                    <td><a href={song.external_urls.spotify} target="_blank">{song.name}</a></td>
                                     <td>{song.explicit ? "Yes" : "No"}</td>
                                     <td>
                                         <audio controls>

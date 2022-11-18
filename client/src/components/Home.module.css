@@ -269,7 +269,7 @@
     justify-content: center;
     color: white;
     position: absolute;
-    z-index: 1;
+    z-index: 5;
   }
 
   .box h1 {
