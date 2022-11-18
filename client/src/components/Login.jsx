@@ -41,6 +41,7 @@ const Login = () => {
             })}
 
     return(
+        <div className={musicStyle.loginBody}>
         <div className={musicStyle.login}>
         <img src='https://media.tenor.com/FkvBwOZT4LQAAAAC/pepe-pepe-the-frog.gif'/>
         <h4>LOG IN</h4>
@@ -53,6 +54,7 @@ const Login = () => {
         <button>Submit</button>
         <p>don't have an account?<a href="/register"> register here</a></p>
         </form>
+        </div>
         </div>
     )
 }
