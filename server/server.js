@@ -8,7 +8,7 @@ const DB = "music"
 
 //----- MiddleWare -----
 app.use(cors({credentials: true, origin: 'http://localhost:3000'}), express.json(), express.urlencoded({extended:true}));
-app.use(cookieParser())
+app.use(cookieParser());
 
 //----------------------
 
@@ -19,8 +19,8 @@ require('dotenv').config();
 require("./config/mongoose.config")(DB);
 
 //Connect to the DB
-require("./routes/music.route")(app)
-require("./routes/users.route")(app)
+require("./routes/music.route")(app);
+require("./routes/users.route")(app);
 
 
 

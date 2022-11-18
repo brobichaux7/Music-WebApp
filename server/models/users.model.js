@@ -31,13 +31,8 @@ const UserSchema = new mongoose.Schema({
 
     image: {
         type: String,
-        required: [true, "{PATH} is required"],
+        required: [false, "{PATH} is required"],
         default: "https://i.ibb.co/4pDNDk1/avatar.png"
-    },
-
-    phoneNumber: {
-        type: Number,
-        default: "999-999-9999"
     },
 
     bio: {
