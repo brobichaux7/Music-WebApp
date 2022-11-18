@@ -77,9 +77,7 @@ src="https://www.rollingstone.com/wp-content/uploads/2019/05/TylerTheCreator_Sam
         </Carousel.Item>
       </Carousel>
       </div>
-
     </div>
-  
   )
 }
 
