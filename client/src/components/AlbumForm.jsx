@@ -36,11 +36,11 @@ const AlbumForm = () => {
         <Button>Login</Button>&nbsp;&nbsp;&nbsp;
         </Link>
       </Navbar>
-             <motion.div
+             {/* <motion.div
              initial={{ opacity: 0 }}
              animate={{ opacity: 1 }}
              exit={{ opacity: 0 }}
-             transition={{ duration: 3 }}>
+             transition={{ duration: 3 }}> */}
     <div className={musicStyle.searchAlbum}>
         <h1>Search for Albums</h1>
         <form onSubmit={onSubmitHandler}>
@@ -48,7 +48,7 @@ const AlbumForm = () => {
             <button>Search</button>
         </form>
     </div>
-    </motion.div>
+    {/* </motion.div> */}
     </div>
   )
 }
