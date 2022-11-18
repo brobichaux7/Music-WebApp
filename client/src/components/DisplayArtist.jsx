@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useParams, Link } from 'react-router-dom';
 import musicStyle from './Home.module.css'
 import {Navbar, Container, Nav, Button, Table} from 'react-bootstrap'
-import img from './check.png'
+
 
 const DisplayArtist = () => {
     
@@ -43,6 +43,7 @@ const DisplayArtist = () => {
           
           axios.request(options).then(function (res) {
               console.log(res.data.artist);
+              console.log(id)
               setArtistInfo(res.data.artist);
               setLoaded(true);
           }).catch(function (error) {
@@ -72,10 +73,9 @@ const DisplayArtist = () => {
             </Link>
         </Navbar>
         <div className={musicStyle.displayCenter}>
-            
             <div>
                 {
-                     loaded ? 
+                     loaded || artistInfo !== undefined ? (
                      <div className={musicStyle.dFlex}>
                         <div>
                             <h1><b>{artistInfo.name}</b></h1>
@@ -89,7 +89,7 @@ const DisplayArtist = () => {
                                     <p><b>Popularity Rating:</b> {artistInfo.popularity}</p>
                                 </div>
                             </div>
-                        </div> : (
+                        </div>) : (
                                 <div className={musicStyle.container}>
                                     <div className={musicStyle.spin} id={musicStyle.loader}></div>
                                     <div className={musicStyle.spin} id={musicStyle.loader2}></div>
