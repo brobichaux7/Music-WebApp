@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import axios from 'axios'
 import ArtistForm from './ArtistForm'
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import {Table} from 'react-bootstrap'
 import musicStyle from './Home.module.css'
@@ -12,6 +12,7 @@ const ArtistResults = () => {
     const [loaded, setLoaded] =useState(false)
 
     const { q } = useParams();
+    const navigate = useNavigate();
 
     useEffect(()=>{
 
@@ -41,6 +42,14 @@ const ArtistResults = () => {
           });
 	}, [q])
 
+    const goToArtist = (i) => {
+        console.log(i)
+        const oneId = results[i].data.uri
+        const oneArtistId = oneId.split(':');
+        console.log(oneArtistId)
+        navigate(`/artist/` + oneArtistId[2])
+    }
+
     return (
     <div className={musicStyle.bgColor}>
         <ArtistForm />
@@ -64,7 +73,7 @@ const ArtistResults = () => {
                                             : <img src={result.data.visuals.avatarImage.sources[1].url} alt="" width="160"/>
                                         }
                                     </td>
-                                    <td>{result.data.profile.name}</td>
+                                    <td><a onClick={() => goToArtist(i)}>{result.data.profile.name}</a></td>
                                 </tr>
                             )
                         })
