@@ -1,10 +1,38 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import musicStyle from './Home.module.css'
+import axios from 'axios'
+import GuestNavBar from './GuestNavBar'
+import UserNavBar from './UserNavBar'
 
 const EditProfile = () => {
+  
+  // user variable
+  const [user, setUser] = useState({});
+  const [loggedIn, setLoggedIn] = useState(false);
+
+  useEffect(()=>{
+    axios.get("http://localhost:8000/api/users/checkUser", {withCredentials:true})
+        .then(res=>{
+            console.log("✅", res)
+            if(res.data.results){
+                //this means the user is logged in and can accees this page
+                setUser(res.data.results)
+                setLoggedIn(true);
+            }
+        })
+        .catch(err=>{
+            //this means someone who is not logged in tried to access the dashboard
+            console.log("err when gettign logged in user", err)
+
+        })
+}, [])
+
   return (
     <div class="container bootstrap snippets bootdey">
+      {
+        loggedIn ? <UserNavBar /> : <GuestNavBar />
+      }
     <h1 class="text-primary">Edit Profile</h1>
       <hr />
 	<div class="row">
