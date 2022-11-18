@@ -34,7 +34,7 @@ const DisplayAlbum = () => {
 	}, [id])
 
   return (
-    <fieldset>
+    <fieldset className={musicStyle.bgColor}>
         <Navbar bg="primary" variant="dark" expand="lg">
             <Container>
             <Navbar.Brand href="#home">LOGO</Navbar.Brand>
@@ -54,7 +54,7 @@ const DisplayAlbum = () => {
             </Link>
         </Navbar>
         <div className={musicStyle.displayCenter}>
-            <h1>{albumInfo.name}</h1>
+            
             <div>
                 {
                     albumInfo.images === undefined ? (
@@ -65,10 +65,45 @@ const DisplayAlbum = () => {
                         <div className={musicStyle.spin} id={musicStyle.loader4}></div>
                         <span id={musicStyle.text}>LOADING...</span>
                     </div>)
-                    : <img src={albumInfo.images[1].url} alt=" " width="200"/>
+                    : <div className={musicStyle.dFlex}>
+                        <div>
+                            <h1><b>{albumInfo.name}</b></h1>
+                            <h5>By: {albumInfo.artists[0].name}</h5>
+                            <div className={musicStyle.dFlexAlbum}>
+                                <div>
+                                    <img src={albumInfo.images[1].url} alt=" " width="200"/>
+                                </div>
+                                <div className={musicStyle.centerText}>
+                                    <p><b>Label:</b> {albumInfo.label}</p>
+                                    <p><b>Number of Songs:</b> {albumInfo.total_tracks}</p>
+                                    <p><b>Popularity Rating:</b> {albumInfo.popularity}</p>
+                                    <a href={albumInfo.external_urls.spotify}><b>Click here to see album in spotify</b></a><br/><br/>
+                                    <p>
+                                        <b>Have you Listened to this?</b>&nbsp;&nbsp;&nbsp;
+                                        <input type="checkbox" />
+                                    </p>
+                                    <p>
+                                        <b>Rating:</b>&nbsp;&nbsp;&nbsp;
+                                        <select name="rating" id="rating">
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                            <option value="6">6</option>
+                                            <option value="7">7</option>
+                                            <option value="8">8</option>
+                                            <option value="9">9</option>
+                                            <option value="10">10</option>
+                                        </select>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 }
             </div>
-            <Table bordered hover>
+            <Table bordered hover className={musicStyle.tableBgColor}>
                 <thead>
                     <tr>
                         <th scope='col'>Track Number</th>
@@ -83,7 +118,7 @@ const DisplayAlbum = () => {
                             return (
                                 <tr key={i}>
                                     <td>{song.track_number}</td>
-                                    <td><Link to={song.external_urls.spotify}>{song.name}</Link></td>
+                                    <td><a href={song.external_urls.spotify}>{song.name}</a></td>
                                     <td>{song.explicit ? "Yes" : "No"}</td>
                                     <td>
                                         <audio controls>

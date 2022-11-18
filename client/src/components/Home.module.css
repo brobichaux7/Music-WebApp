@@ -100,9 +100,8 @@
 }
 
 .searchAlbum {
-    margin-top: 80px;
-    margin-bottom: 80px;
-    margin-left: 760px;
+    margin: 80px auto;
+    text-align: center;
 }
 
 .searchAlbum input {
@@ -133,9 +132,9 @@
 }
 
 .searchArtist {
-    margin-top: 80px;
-    margin-bottom: 80px;
-    margin-left: 760px;
+    margin: 80px auto;
+    text-align: center;
+
 }
 
 .searchArtist input {
@@ -229,3 +228,23 @@
     position: relative;
     top: -857px;
   }
+
+.dFlex {
+    display: flex;
+}
+
+.centerText {
+    margin-left: 20px;
+}
+.dFlexAlbum {
+    display: flex;
+    align-items: top;
+}
+
+.bgColor {
+    background-color: #CCE9F6;
+}
+
+.tableBgColor {
+    background-color: white;
+}
