@@ -254,3 +254,24 @@
     margin: 0 auto;
     background-color: white;
 }
+
+.boxcontainer{
+    position: absolute;
+  }
+  
+  .box {
+    width: 1900px;
+    height: 1257px;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    position: absolute;
+    z-index: 1;
+  }
+
+  .box h1 {
+    margin-bottom: 350px;
+  }

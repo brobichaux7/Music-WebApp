@@ -10,7 +10,6 @@ import ArtistResults from './components/ArtistResults';
 import DisplayAlbum from './components/DisplayAlbum';
 import DisplayArtist from './components/DisplayArtist';
 
-
 function App() {
   return (
     <div className="App">

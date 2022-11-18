@@ -3,12 +3,21 @@ import {Navbar, Container, Nav, Button, Carousel} from 'react-bootstrap'
 import {Link} from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import musicStyle from './Home.module.css'
+import { motion } from "framer-motion";
+import Transition from './Transition'
 
 const Home = () => {
 
   
 
   return (
+    <div>
+      <Transition/>
+    <motion.div
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    exit={{ opacity: 0 }}
+    transition={{delay:1.5, duration: 3.5}}>
     <div className={musicStyle.homeBody}>
     <Navbar bg="primary" variant="dark" expand="lg">
     <Container>
@@ -77,6 +86,8 @@ src="https://www.rollingstone.com/wp-content/uploads/2019/05/TylerTheCreator_Sam
         </Carousel.Item>
       </Carousel>
       </div>
+    </div>
+    </motion.div>
     </div>
   )
 }

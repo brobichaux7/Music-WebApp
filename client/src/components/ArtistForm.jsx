@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import musicStyle from './Home.module.css'
 import {Navbar, Container, Nav, Button, Table} from 'react-bootstrap'
 import {Link} from 'react-router-dom'
+import { motion } from "framer-motion";
 
 const ArtistForm = () => {
     const [searchItem, setSearchItem] = useState('');
@@ -33,6 +34,11 @@ const ArtistForm = () => {
         <Button>Login</Button>&nbsp;&nbsp;&nbsp;
         </Link>
       </Navbar>
+      <motion.div
+             initial={{ opacity: 0 }}
+             animate={{ opacity: 1 }}
+             exit={{ opacity: 0 }}
+             transition={{ duration: 3 }}>
     <div className={musicStyle.searchArtist}>
         <h1>Search for Artists</h1>
         <form onSubmit={onSubmitHandler}>
@@ -40,6 +46,7 @@ const ArtistForm = () => {
             <button>Search</button>
         </form>
     </div>
+    </motion.div>
     </div>
   )
 }
