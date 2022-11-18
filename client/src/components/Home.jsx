@@ -1,10 +1,7 @@
 import React, {useState, useEffect} from 'react'
-import {Navbar, Container, Nav, Button, Carousel} from 'react-bootstrap'
-import {Link} from 'react-router-dom'
+import {Carousel} from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import musicStyle from './Home.module.css'
-import { motion } from "framer-motion";
-import Transition from './Transition'
 import UserNavBar from './UserNavBar'
 import GuestNavBar from './GuestNavBar'
 import axios from 'axios'

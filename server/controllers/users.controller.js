@@ -44,7 +44,7 @@ module.exports.login = async(req, res) => {
     }, process.env.SECRET_KEY);
     // note that the response object allows chained calls to cookie and json
     res
-        .cookie("usertoken", userToken,{
+        .cookie("usertoken", userToken, process.env.SECRET_KEY, {
             httpOnly: true
         })
         .json({ msg: "success!" });
