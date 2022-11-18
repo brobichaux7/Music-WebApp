@@ -22,27 +22,20 @@ const AlbumResults = () => {
         const options = {
             method: 'GET',
             url: 'https://spotify23.p.rapidapi.com/search/',
-            params: {
-            q: q,
-            type: 'albums',
-            offset: '0',
-            limit: '20',
-            numberOfTopResults: '5'
-            },
+            params: {q: q, type: 'albums', offset: '0', limit: '15', numberOfTopResults: '5'},
             headers: {
-            'X-RapidAPI-Key': 'd88a07d653mshc6ed809197dfab7p1728b6jsn9029cf1ca0d6',
-            'X-RapidAPI-Host': 'spotify23.p.rapidapi.com'
+                'X-RapidAPI-Key': 'd88a07d653mshc6ed809197dfab7p1728b6jsn9029cf1ca0d6',
+                'X-RapidAPI-Host': 'spotify23.p.rapidapi.com'
             }
-        };
-        
-        axios.request(options).then(function (res) {
-            console.log(res.data.albums.items);
-            setResults(res.data.albums.items)
-            console.log(results);
-            setLoaded(true);
-        }).catch(function (error) {
-            console.error(error);
-        });
+          };
+          
+          axios.request(options).then(function (response) {
+              console.log(response.data.albums.items);
+              setResults(response.data.albums.items);
+              setLoaded(true);
+          }).catch(function (error) {
+              console.error(error);
+          });
 	}, [q])
 
     const goToAlbum = (i) => {

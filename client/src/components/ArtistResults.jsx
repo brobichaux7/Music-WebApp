@@ -19,17 +19,11 @@ const ArtistResults = () => {
 		// Api call for retrieving token
 		const options = {
             method: 'GET',
-            url: 'https://spotify23.p.rapidapi.com/search/',
-            params: {
-              q: q,
-              type: 'artists',
-              offset: '0',
-              limit: '20',
-              numberOfTopResults: '5'
-            },
+            url: 'https://spotify81.p.rapidapi.com/search',
+            params: {q: q, type: 'artists', offset: '0', limit: '10', numberOfTopResults: '5'},
             headers: {
               'X-RapidAPI-Key': 'd88a07d653mshc6ed809197dfab7p1728b6jsn9029cf1ca0d6',
-              'X-RapidAPI-Host': 'spotify23.p.rapidapi.com'
+              'X-RapidAPI-Host': 'spotify81.p.rapidapi.com'
             }
           };
           
@@ -43,10 +37,8 @@ const ArtistResults = () => {
 	}, [q])
 
     const goToArtist = (i) => {
-        console.log(i)
         const oneId = results[i].data.uri
         const oneArtistId = oneId.split(':');
-        console.log(oneArtistId)
         navigate(`/artist/` + oneArtistId[2])
     }
 
@@ -55,32 +47,34 @@ const ArtistResults = () => {
         <ArtistForm />
         {
             loaded ? (
-            <Table bordered hover className={musicStyle.tableWidth}>
-                <thead>
-                    <tr>
-                        <th scope='col' width="10%"></th>
-                        <th scope='col' width="70%">Name</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {
-                        results.map((result, i) => {
-                            return (
-                                <tr key={i}>
-                                    <td>
-                                        {
-                                            result.data.visuals.avatarImage == null ? <img src="https://twirpz.files.wordpress.com/2015/06/twitter-avi-gender-balanced-figure.png?w=160" alt=" "/>
-                                            : <img src={result.data.visuals.avatarImage.sources[1].url} alt="" width="160"/>
-                                        }
-                                    </td>
-                                    <td><a onClick={() => goToArtist(i)}>{result.data.profile.name}</a></td>
-                                </tr>
-                            )
-                        })
-                    }
-                </tbody>
-            </Table>
-        ): (
+                <div>
+                    <Table bordered hover className={musicStyle.tableWidth}>
+                        <thead>
+                            <tr>
+                                <th scope='col' width="10%"></th>
+                                <th scope='col' width="70%">Name</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {
+                                results.map((result, i) => {
+                                    return (
+                                        <tr key={i}>
+                                            <td>
+                                                {
+                                                    result.data.visuals.avatarImage == null ? <img src="https://twirpz.files.wordpress.com/2015/06/twitter-avi-gender-balanced-figure.png?w=160" alt=" "/>
+                                                    : <img src={result.data.visuals.avatarImage.sources[0].url} alt="" width="160"/>
+                                                }
+                                            </td>
+                                            <td><a onClick={() => goToArtist(i)}>{result.data.profile.name}</a></td>
+                                        </tr>
+                                    )
+                                })
+                            }
+                        </tbody>
+                    </Table><br />
+                </div>
+            ): (
             <div className={musicStyle.container}>
                 <div className={musicStyle.spin} id={musicStyle.loader}></div>
                 <div className={musicStyle.spin} id={musicStyle.loader2}></div>

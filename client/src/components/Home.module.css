@@ -157,8 +157,8 @@
 }
 
 .displayCenter {
-    width: 80%;
-    margin: 0 auto;
+    width: 70%;
+    margin: 10px auto;
 }
 
 .container {
@@ -242,18 +242,20 @@
 }
 
 .bgColor {
-    background-color: #CCE9F6;
+    /* background-color: #CCE9F6; */
+    background: linear-gradient(178.6deg, rgb(20, 36, 50) 11.8%, rgb(124, 143, 161) 83.8%);
+    color: white;
 }
 
 .tableBgColor {
-    background-color: white;
+    background-color: darkgray;
     text-align: center !important;
 }
 
 .tableWidth {
     width: 75% !important;
-    margin: 0 auto;
-    background-color: white;
+    margin: 0px auto;
+    background-color: darkgray;
 }
 
 .boxcontainer{
@@ -275,4 +277,53 @@
 
   .box h1 {
     margin-bottom: 350px;
+  }
+
+  .bio {
+    width: 55%;
+    margin: 5px auto;
+  }
+
+  .artistSongsTable {
+    background-color: white;
+    text-align: center !important;
+    align-items: left;
+  }
+
+  .scroll {
+    --size: 150px;
+  
+    display: grid;
+    grid-auto-flow: column;
+    gap: calc(var(--gap) / 2);
+    margin: 0;
+
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+    
+    padding-inline: var(--gap);
+    scroll-padding-inline: var(--gap);
+    padding-block: calc(var(--gap) / 2);
+
+    text-decoration: none;
+    
+  }
+
+  .scroll picture {
+    inline-size: 200px;
+    block-size: 200px;
+  }
+  
+  .scroll li {
+    display: inline-block;
+  }
+
+  .scroll > li:last-of-type figure {
+    position: relative;
+  
+  }
+
+  .scroll a {
+    text-decoration: none;
+    color: black
   }
