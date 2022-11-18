@@ -82,7 +82,7 @@ const DisplayArtist = () => {
                             <div className={musicStyle.dFlexAlbum}>
                                 <div>
                                     <div>
-                                        <h1><b>{artistInfo.profile.name}</b>{artistInfo.profile.verified ? <img src="./check2.png" width="20px"/> : " "}</h1>
+                                        <h1><b>{artistInfo.profile.name}</b></h1>
                                         <img src={artistInfo.visuals.avatarImage.sources[0].url} alt="" width="200"/>
                                     </div><br/>
                                         <p>Followers: {artistInfo.stats.followers}</p>
@@ -154,5 +154,7 @@ const DisplayArtist = () => {
 }
 
 export default DisplayArtist
+
+// {artistInfo.profile.verified ? <img src="./check2.png" width="20px"/> : " "}
 
 
