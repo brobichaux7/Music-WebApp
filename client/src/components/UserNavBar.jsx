@@ -3,6 +3,7 @@ import {Navbar, Container, Nav, Button} from 'react-bootstrap'
 import {useNavigate} from 'react-router-dom'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
+import musicStyle from './Home.module.css'
 
 
 const UserNavBar = () => {
@@ -52,9 +53,9 @@ const UserNavBar = () => {
           </Nav>
       </Navbar.Collapse>
       </Container>
-      <Link to={`/profile/${user._id}`}>
+      <a href={`/profile/${user._id}`}>
     <Button><img src={user.image} alt="" width="30"/> {user.name}</Button>&nbsp;&nbsp;&nbsp;
-    </Link>
+    </a>
     <Button onClick={() => logout()}>Logout</Button>&nbsp;&nbsp;&nbsp;
   </Navbar>
   </div>

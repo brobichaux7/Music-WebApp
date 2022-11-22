@@ -37,7 +37,8 @@ const UserSchema = new mongoose.Schema({
 
     bio: {
         type: String,
-        maxlength: [256, "{PATH} can not be more than 256 charaters"]
+        maxlength: [256, "{PATH} can not be more than 256 charaters"],
+        default: "No bio yet"
     }
 }, {timestamps: true})
 
