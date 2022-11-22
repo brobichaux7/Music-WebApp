@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, Link } from 'react-router-dom';
 import musicStyle from './Home.module.css'
 import {Table} from 'react-bootstrap'
 import GuestNavBar from './GuestNavBar';
@@ -11,6 +11,10 @@ const DisplayAlbum = () => {
     // result variables
     const [albumInfo, setAlbumInfo] = useState([]);
     const [songs, setSongs] = useState([]);
+
+    // rating variables
+    const [rating, setRating] = useState(1);
+    const [listened, setListened] = useState(false);
 
     // if results are loaded or not variables
     const [loaded, setLoaded] = useState(true);
@@ -70,6 +74,10 @@ const DisplayAlbum = () => {
         navigate('/artist/' + albumInfo.artists[0].id) 
     }
 
+    const listenedCheck = () => {
+        setListened(true);
+    }
+
   return (
     <fieldset className={musicStyle.bgColor}>
         {
@@ -91,6 +99,7 @@ const DisplayAlbum = () => {
                         <div>
                             <h1><b>{albumInfo.name}</b></h1>
                             <h5>By: <a onClick={goToArtist}>{albumInfo.artists[0].name}</a></h5>
+                            <p>Release Date: {albumInfo.release_date}</p>
                             <div className={musicStyle.dFlexAlbum}>
                                 <div>
                                     <img src={albumInfo.images[0].url} alt=" " width="200"/>
@@ -100,25 +109,14 @@ const DisplayAlbum = () => {
                                     <p><b>Number of Songs:</b> {albumInfo.total_tracks}</p>
                                     <p><b>Popularity Rating:</b> {albumInfo.popularity}</p>
                                     <a href={albumInfo.external_urls.spotify} target="_blank"><b>Click here to see album in spotify</b></a><br/><br/>
-                                    <p>
-                                        <b>Have you Listened to this?</b>&nbsp;&nbsp;&nbsp;
-                                        <input type="checkbox" />
-                                    </p>
-                                    <p>
-                                        <b>Rating:</b>&nbsp;&nbsp;&nbsp;
-                                        <select name="rating" id="rating">
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                            <option value="4">4</option>
-                                            <option value="5">5</option>
-                                            <option value="6">6</option>
-                                            <option value="7">7</option>
-                                            <option value="8">8</option>
-                                            <option value="9">9</option>
-                                            <option value="10">10</option>
-                                        </select>
-                                    </p>
+                                    {
+                                        loggedIn ? 
+                                            <p>
+                                                <b>Have you Listened to this?</b>&nbsp;&nbsp;&nbsp;
+                                                <input type="checkbox" onChange={e => listenedCheck(e.target.checked)} checked={listened} />
+                                            </p>
+                                        : <b>Want to rate this album? <Link to="/login">Login!</Link></b>
+                                    }
                                 </div>
                             </div>
                         </div>
@@ -140,7 +138,7 @@ const DisplayAlbum = () => {
                             return (
                                 <tr key={i}>
                                     <td>{song.track_number}</td>
-                                    <td><a href={song.external_urls.spotify} target="_blank">{song.name}</a></td>
+                                    <td><a href={song.external_urls.spotify} target="_blank" rel="noopener noreferrer">{song.name}</a></td>
                                     <td>{song.explicit ? "Yes" : "No"}</td>
                                     <td>
                                         <audio controls>
