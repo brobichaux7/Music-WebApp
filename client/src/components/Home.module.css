@@ -402,3 +402,14 @@
     width: 70%;
     margin: 0 auto;
   }
+
+  .test {
+    text-decoration: none;
+  }
+
+  .dFlexCenter {
+    display: flex;
+    align-items: center;
+  }
+
+ 

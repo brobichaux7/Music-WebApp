@@ -1,8 +1,7 @@
 import React, {useState, useEffect} from 'react'
-import {Navbar, Container, Nav, Button} from 'react-bootstrap'
+import {Navbar, Container, Nav, Button, NavItem} from 'react-bootstrap'
 import {useNavigate} from 'react-router-dom'
 import axios from 'axios'
-import { Link } from 'react-router-dom'
 import musicStyle from './Home.module.css'
 
 
@@ -38,25 +37,27 @@ const UserNavBar = () => {
         }
 
     return (
-    <div>
+    <div className={musicStyle.navBarMargin}>
     <Navbar bg="primary" variant="dark" expand="lg">
-    <Container>
       <Navbar.Brand href="/"><img src="https://media.tenor.com/FkvBwOZT4LQAAAAC/pepe-pepe-the-frog.gif" alt="" width="40px"/></Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
-        <Nav className="me-auto">
-        <Nav.Link href="/">Home</Nav.Link>
-          <Nav.Link href="/search/albums">Search Albums</Nav.Link>
-          <Nav.Link href="/search/artists">Search Artists</Nav.Link>
-          </Nav>
-          <Nav>
-          </Nav>
+        <Nav className="flex-grow-1 justify-content-between">
+            <NavItem className={musicStyle.dFlexCenter}>
+                <Nav.Link href="/">Home</Nav.Link>
+                <Nav.Link href="/search/albums">Search Albums</Nav.Link>
+                <Nav.Link href="/search/artists">Search Artists</Nav.Link>
+            </NavItem>
+            <NavItem className={musicStyle.dFlexCenter}>
+                <Nav.Link href={`/profile/${user._id}`}>
+                    <Button><img src={user.image} alt="" width="30"/> {user.name}</Button>
+                </Nav.Link>
+                <Nav.Link>
+                    <Button onClick={() => logout()}>Logout</Button>
+                </Nav.Link>
+            </NavItem>
+        </Nav>
       </Navbar.Collapse>
-      </Container>
-      <a href={`/profile/${user._id}`}>
-    <Button><img src={user.image} alt="" width="30"/> {user.name}</Button>&nbsp;&nbsp;&nbsp;
-    </a>
-    <Button onClick={() => logout()}>Logout</Button>&nbsp;&nbsp;&nbsp;
   </Navbar>
   </div>
   )

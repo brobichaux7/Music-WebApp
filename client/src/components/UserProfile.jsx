@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react'
 import axios from 'axios';
 import GuestNavBar from './GuestNavBar';
 import UserNavBar from './UserNavBar';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import musicStyle from './Home.module.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import {Table} from 'react-bootstrap'
@@ -43,7 +43,7 @@ const UserProfile = () => {
       <div className={musicStyle.container}>
         <div className={musicStyle.dFlexBetween}>
           <h1>{user.name}'s Profile</h1>
-          <p>⚙️Edit Profile</p>
+          <a className={musicStyle.scroll} href={`/edit/profile/${user._id}`}><p>⚙️Edit Profile</p></a>
         </div><hr />
         <div className={musicStyle.dFlex}>
           <img src={user.image} alt="https://i.ibb.co/4pDNDk1/avatar.png" width="15%"/>
@@ -60,6 +60,9 @@ const UserProfile = () => {
                   <th scope='col'>Rating</th>
                 </tr>
               </thead>
+              <tbody>
+
+              </tbody>
             </Table>
           </div>
         </div>
