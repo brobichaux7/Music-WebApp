@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react'
 import axios from 'axios';
 import GuestNavBar from './GuestNavBar';
 import UserNavBar from './UserNavBar';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import musicStyle from './Home.module.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import {Table} from 'react-bootstrap'
@@ -60,6 +60,9 @@ const UserProfile = () => {
                   <th scope='col'>Rating</th>
                 </tr>
               </thead>
+              <tbody>
+
+              </tbody>
             </Table>
           </div>
         </div>
