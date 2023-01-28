@@ -39,44 +39,38 @@ const EditProfile = () => {
 
       <div class="col-md-3">
         <div class="text-center">
-          <img src="https://bootdey.com/img/Content/avatar/avatar7.png" class="avatar img-circle img-thumbnail" alt="avatar" />
-          <h6>Upload a different photo...</h6>
+          <img src={user.image} class="avatar img-circle img-thumbnail" alt="avatar" />
+          <h6>Change Profile Picture</h6>
           
           <input type="file" class="form-control" />
         </div>
       </div>
       
       <div class="col-md-9 personal-info">
-        <div class="alert alert-info alert-dismissable">
+        {/* <div class="alert alert-info alert-dismissable">
           <a class="panel-close close" data-dismiss="alert">×</a> 
           <i class="fa fa-coffee"></i>
           This is an <strong>.alert</strong>. Use this to show important messages to the user.
-        </div>
+        </div> */}
         <h3>Personal info</h3>
         
         <form class="form-horizontal" role="form">
           <div class="form-group">
-            <label class="col-lg-3 control-label">First name:</label>
+            <label class="col-lg-3 control-label">Username:</label>
             <div class="col-lg-8">
-              <input class="form-control" type="text" value="dey-dey" />
+              <input class="form-control" type="text" value={user.name} />
             </div>
           </div>
           <div class="form-group">
-            <label class="col-lg-3 control-label">Last name:</label>
+            <label class="col-lg-3 control-label">Bio:</label>
             <div class="col-lg-8">
-              <input class="form-control" type="text" value="bootdey" />
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="col-lg-3 control-label">Company:</label>
-            <div class="col-lg-8">
-              <input class="form-control" type="text" value="" />
+              <textarea class="form-control" value={user.bio} />
             </div>
           </div>
           <div class="form-group">
             <label class="col-lg-3 control-label">Email:</label>
             <div class="col-lg-8">
-              <input class="form-control" type="text" value="janesemail@gmail.com" />
+              <input class="form-control" type="text" value={user.email} />
             </div>
           </div>
           <button className={musicStyle.up}>Update</button>
