@@ -2,14 +2,23 @@ import React, {useEffect, useState} from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import musicStyle from './Home.module.css'
 import axios from 'axios'
-import GuestNavBar from './GuestNavBar'
 import UserNavBar from './UserNavBar'
+import { useNavigate, useParams } from 'react-router-dom'
+import { isObjectIdOrHexString } from 'mongoose'
 
 const EditProfile = () => {
-  
-  // user variable
-  const [user, setUser] = useState({});
-  const [loggedIn, setLoggedIn] = useState(false);
+
+  // user info
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [image, setImage] = useState("");
+  const [bio, setBio] = useState("");
+
+  const [errors, setErrors] = useState([])
+
+  const navigate = useNavigate();
+
+  const {id} = useParams();
 
   useEffect(()=>{
     axios.get("http://localhost:8000/api/users/checkUser", {withCredentials:true})
@@ -17,8 +26,10 @@ const EditProfile = () => {
             console.log("✅", res)
             if(res.data.results){
                 //this means the user is logged in and can accees this page
-                setUser(res.data.results)
-                setLoggedIn(true);
+                setName(res.data.results.name)
+                setEmail(res.data.results.email)
+                setBio(res.data.results.bio)
+                setImage(res.data.results.image)
             }
         })
         .catch(err=>{
@@ -28,56 +39,59 @@ const EditProfile = () => {
         })
 }, [])
 
-  return (
-    <div class="container bootstrap snippets bootdey">
-      {
-        loggedIn ? <UserNavBar /> : <GuestNavBar />
-      }
-    <h1 class="text-primary">Edit Profile</h1>
-      <hr />
-	<div class="row">
+    const editUser = (e) => {
+      e.preventDefualt();
+      axios.put("http://localhost:8000/api/users/update/" + id, {name, email, image, bio})
+        .then(res => {
+          console.log("✅ EDIT PROFILE client success")
+          console.log(res.data)
+          navigate('/user/' + id)
+        })
+        .catch(err => {
+          console.log("❌CLIENT ERROR❌")
+          const errorResponse = err.response.data.errors;
+          const errorArr = [];
+          for (const key of isObjectIdOrHexString.keys(errorResponse)) {
+            errorArr.push(errorResponse[key].message)
+          }
+          setErrors(errorArr);
+        })
+    }
 
-      <div class="col-md-3">
-        <div class="text-center">
-          <img src={user.image} class="avatar img-circle img-thumbnail" alt="avatar" />
-          <h6>Change Profile Picture</h6>
-          
-          <input type="file" class="form-control" />
-        </div>
-      </div>
-      
-      <div class="col-md-9 personal-info">
-        {/* <div class="alert alert-info alert-dismissable">
-          <a class="panel-close close" data-dismiss="alert">×</a> 
-          <i class="fa fa-coffee"></i>
-          This is an <strong>.alert</strong>. Use this to show important messages to the user.
-        </div> */}
-        <h3>Personal info</h3>
-        
-        <form class="form-horizontal" role="form">
-          <div class="form-group">
-            <label class="col-lg-3 control-label">Username:</label>
-            <div class="col-lg-8">
-              <input class="form-control" type="text" value={user.name} />
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="col-lg-3 control-label">Bio:</label>
-            <div class="col-lg-8">
-              <textarea class="form-control" value={user.bio} />
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="col-lg-3 control-label">Email:</label>
-            <div class="col-lg-8">
-              <input class="form-control" type="text" value={user.email} />
-            </div>
-          </div>
-          <button className={musicStyle.up}>Update</button>
-        </form>
-      </div>
-  </div>
-</div>
+    const goBackHome = () => {
+      navigate("/profile/" + id)
+    }
+
+  return (
+    <div>
+      <UserNavBar/>
+    <div class="container bootstrap snippets bootdey">
+      <h1>Edit Profile:</h1>
+      {errors.map((err, index) => <p key={index}>{err}</p>)}
+      <form onSubmit={editUser}>
+        <p>
+          <label>Username: </label><br/>
+          <input type="text" onChange={(e)=>setName(e.target.value)} value={name}/>
+        </p>
+        <p>
+          <label>Bio: </label><br/>
+          <textarea type="text" onChange={(e)=>setBio(e.target.value)} value={bio}/>
+        </p>
+        {/* <p>
+          <label>Email: </label><br/>
+          <input type="text" onChange={(e)=>setEmail(e.target.value)} value={email}/>
+        </p> */}
+        <p>
+          <label>Change Profile Picture</label><br/>
+          <img src={image} id="output" width="200" /><br/>
+          <input id="file" type="file" onChange={(e)=>setImage(e.target.value)}/><br/>
+        </p>
+        <button onClick={goBackHome}>Cancel</button>
+        <input type="submit" value="Submit" />
+      </form>
+    
+    </div>
+    </div>
   )
 }
 
