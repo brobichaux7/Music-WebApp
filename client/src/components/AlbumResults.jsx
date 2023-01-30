@@ -53,9 +53,15 @@ const AlbumResults = () => {
         navigate(`/album/` + oneAlbumId[2])
     }
 
+    const goBack = () => {
+        
+    }
+
     return (
     <div className={musicStyle.bgColor}>
-        <AlbumForm/>
+        {/* <AlbumForm/> */}
+        <h1>you are searching for {q} related albums</h1>
+        <h5>click <a onClick={() => goBack()}>here</a> to return back to search</h5>
         {
             loaded ? (
             <Table bordered hover className={musicStyle.tableWidth}>

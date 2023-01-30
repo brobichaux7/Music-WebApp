@@ -5,7 +5,11 @@ const MusicSchema = new mongoose.Schema({
         type: Number
     },
     listened: {
-        type: Boolean
+        type: Boolean,
+        required: true
+    },
+    opinion: {
+        type: String
     }
 }, { timestamps: true });
 
