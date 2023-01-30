@@ -50,7 +50,7 @@ const ArtistResults = () => {
     }
 
     return (
-    <div className={musicStyle.bgColor}>
+    <div className={musicStyle.bGround}>
         {/* <ArtistForm /> */}
         <h1>you are searching for {q} and related artists</h1>
         <h5>click <a>here</a> to return back to search</h5>

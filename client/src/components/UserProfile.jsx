@@ -36,7 +36,7 @@ const UserProfile = () => {
 
 
   return (
-    <div className={musicStyle.bgColor}>
+    <div className={musicStyle.bGround}>
       {
         loggedIn ? <UserNavBar /> : <GuestNavBar />
       }

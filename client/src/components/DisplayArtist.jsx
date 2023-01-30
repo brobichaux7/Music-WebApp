@@ -86,7 +86,7 @@ const DisplayArtist = () => {
     }
 
   return (
-    <fieldset className={musicStyle.bgColor}>
+    <fieldset className={musicStyle.bGround}>
         {
             loggedIn ? <UserNavBar /> : <GuestNavBar />
         }

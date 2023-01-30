@@ -41,7 +41,7 @@ const ArtistForm = () => {
   }, [])
 
     return (
-        <div>
+        <div className={musicStyle.bGround}>
         {
           loggedIn ? <UserNavBar /> : <GuestNavBar />
         }
