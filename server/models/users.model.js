@@ -8,6 +8,7 @@ const UserSchema = new mongoose.Schema({
     name:{
         type: String,
         required: [true, "{PATH} is required"],
+        unique: [true, "Username already in use"],
         minlength: [3, "{PATH} must be at least 3 charaters long"]
 
     },
@@ -31,12 +32,13 @@ const UserSchema = new mongoose.Schema({
 
     image: {
         type: String,
-        required: [false, "{PATH} is required"],
+        required: false,
         default: "https://i.ibb.co/4pDNDk1/avatar.png"
     },
 
     bio: {
         type: String,
+        required: false,
         maxlength: [256, "{PATH} can not be more than 256 charaters"],
         default: "No bio yet"
     }
