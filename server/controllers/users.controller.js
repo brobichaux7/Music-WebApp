@@ -16,7 +16,7 @@ module.exports.createNewUser = (requestObj,responseObj) => {
             }).json(newlyCreatedUser)
         })
         .catch(err => {
-            console.log("Server Error")
+            console.log("❌Server Error")
             responseObj.status(400).json(err)
         });
     

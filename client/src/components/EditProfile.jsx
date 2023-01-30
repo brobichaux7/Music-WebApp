@@ -8,6 +8,8 @@ import { isObjectIdOrHexString } from 'mongoose'
 
 const EditProfile = () => {
 
+  const [preview, setPreview] = useState(null);
+
   // user info
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -21,31 +23,28 @@ const EditProfile = () => {
   const {id} = useParams();
 
   useEffect(()=>{
-    axios.get("http://localhost:8000/api/users/checkUser", {withCredentials:true})
+    axios.get("http://localhost:8000/api/users/checkUser" , {withCredentials:true})
         .then(res=>{
             console.log("✅", res)
-            if(res.data.results){
-                //this means the user is logged in and can accees this page
-                setName(res.data.results.name)
-                setEmail(res.data.results.email)
-                setBio(res.data.results.bio)
-                setImage(res.data.results.image)
-            }
+            setName(res.data.results.name)
+            setEmail(res.data.results.email)
+            setBio(res.data.results.bio)
+            setImage(res.data.results.image)
         })
         .catch(err=>{
             //this means someone who is not logged in tried to access the dashboard
-            console.log("err when gettign logged in user", err)
+            console.log("err when getting logged in user", err)
 
         })
 }, [])
 
     const editUser = (e) => {
       e.preventDefualt();
-      axios.put("http://localhost:8000/api/users/update/" + id, {name, email, image, bio})
+      axios.put("http://localhost:8000/api/users/update/" + id, {name, image, bio})
         .then(res => {
           console.log("✅ EDIT PROFILE client success")
           console.log(res.data)
-          navigate('/user/' + id)
+          navigate('/profile/' + id)
         })
         .catch(err => {
           console.log("❌CLIENT ERROR❌")
@@ -62,10 +61,19 @@ const EditProfile = () => {
       navigate("/profile/" + id)
     }
 
+    const handleFileChange = (e) => {
+      const file = e.target.files[0];
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onloadend = () => {
+        setPreview(reader.result);
+      };
+    };
+
   return (
     <div>
       <UserNavBar/>
-    <div class="container bootstrap snippets bootdey">
+    <div className="container bootstrap snippets bootdey">
       <h1>Edit Profile:</h1>
       {errors.map((err, index) => <p key={index}>{err}</p>)}
       <form onSubmit={editUser}>
@@ -76,15 +84,10 @@ const EditProfile = () => {
         <p>
           <label>Bio: </label><br/>
           <textarea type="text" onChange={(e)=>setBio(e.target.value)} value={bio}/>
-        </p>
-        {/* <p>
-          <label>Email: </label><br/>
-          <input type="text" onChange={(e)=>setEmail(e.target.value)} value={email}/>
-        </p> */}
+        </p>   
         <p>
-          <label>Change Profile Picture</label><br/>
-          <img src={image} id="output" width="200" /><br/>
-          <input id="file" type="file" onChange={(e)=>setImage(e.target.value)}/><br/>
+          <img src={preview || image} alt="Profile" width={"250px"}/><br/>
+          <input type="file" onChange={handleFileChange} />
         </p>
         <button onClick={goBackHome}>Cancel</button>
         <input type="submit" value="Submit" />
