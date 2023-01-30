@@ -58,7 +58,7 @@ const AlbumResults = () => {
     }
 
     return (
-    <div className={musicStyle.bgColor}>
+    <div className={musicStyle.bGround}>
         {/* <AlbumForm/> */}
         <h1>you are searching for {q} related albums</h1>
         <h5>click <a onClick={() => goBack()}>here</a> to return back to search</h5>

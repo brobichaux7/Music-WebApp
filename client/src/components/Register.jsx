@@ -47,24 +47,26 @@ const Register = () => {
     }
     
     return(
-        <div className={musicStyle.registerBody}>
-        <div className={musicStyle.register}>
-        <img src='https://media.tenor.com/FkvBwOZT4LQAAAAC/pepe-pepe-the-frog.gif'/>
-        <h4>REGISTER</h4>
-        {errors.map((err, index) => <p key={index}>{err}</p>)}
-        <form onSubmit={createUser}>
-        <label>Username:</label>
-        <input type="text" onChange={e => setName(e.target.value)} value={name}/> <br/>
-        <label>Email:</label>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" onChange={e => setEmail(e.target.value)} value={email}/> <br/>
-        <label>Password:</label>
-        &nbsp;&nbsp;<input type="password" onChange={e => setPassword(e.target.value)} value={password}/><br/>
-        <label>Confirm:</label>&nbsp;&nbsp;&nbsp;&nbsp; 
-        <input type="password" onChange={e => setConfirmPassword(e.target.value)} value={confirmPassword}/> <br/>
-        <button>Create Account</button>
-        <p>already have an account?<a href="/login"> log in here</a></p>
-        </form>
-        </div>
+        <div className={musicStyle.bGround}>
+            <div className={musicStyle.registerBody}>
+            <div className={musicStyle.register}>
+            <img src='https://media.tenor.com/FkvBwOZT4LQAAAAC/pepe-pepe-the-frog.gif'/>
+            <h4>REGISTER</h4>
+            {errors.map((err, index) => <p key={index}>{err}</p>)}
+            <form onSubmit={createUser}>
+            <label>Username:</label>
+            <input type="text" onChange={e => setName(e.target.value)} value={name}/> <br/>
+            <label>Email:</label>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" onChange={e => setEmail(e.target.value)} value={email}/> <br/>
+            <label>Password:</label>
+            &nbsp;&nbsp;<input type="password" onChange={e => setPassword(e.target.value)} value={password}/><br/>
+            <label>Confirm:</label>&nbsp;&nbsp;&nbsp;&nbsp; 
+            <input type="password" onChange={e => setConfirmPassword(e.target.value)} value={confirmPassword}/> <br/>
+            <button>Create Account</button>
+            <p>already have an account?<a href="/login"> log in here</a></p>
+            </form>
+            </div>
+            </div>
         </div>
     )
 }

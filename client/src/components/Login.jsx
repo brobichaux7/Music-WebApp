@@ -41,21 +41,23 @@ const Login = () => {
             })}
 
     return(
-        <div className={musicStyle.loginBody}>
-        <div className={musicStyle.login}>
-        <img src='https://media.tenor.com/FkvBwOZT4LQAAAAC/pepe-pepe-the-frog.gif'/>
-        <h4>LOG IN</h4>
-        {errors.map((error,index) => <p key ={index}>{error}</p>)}
-        <form onSubmit={login}>
-        <label>Email:</label>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" onChange={(e) => setEmail(e.target.value)} value={email}/> <br/>
-        <label>Password:</label>
-        <input type="password" onChange={(e) => setPassword(e.target.value)} value={password}/><br/>
-        <button>Submit</button>
-        <p>don't have an account? <a href="/register">register here</a></p>
-        <p>continue as a guest? <a href="/">click here</a></p>
-        </form>
-        </div>
+        <div className={musicStyle.bGround}>
+            <div className={musicStyle.loginBody}>
+            <div className={musicStyle.login}>
+            <img src='https://media.tenor.com/FkvBwOZT4LQAAAAC/pepe-pepe-the-frog.gif'/>
+            <h4>LOG IN</h4>
+            {errors.map((error,index) => <p key ={index}>{error}</p>)}
+            <form onSubmit={login}>
+            <label>Email:</label>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" onChange={(e) => setEmail(e.target.value)} value={email}/> <br/>
+            <label>Password:</label>
+            <input type="password" onChange={(e) => setPassword(e.target.value)} value={password}/><br/>
+            <button>Submit</button>
+            <p>don't have an account? <a href="/register">register here</a></p>
+            <p>continue as a guest? <a href="/">click here</a></p>
+            </form>
+            </div>
+            </div>
         </div>
     )
 }
