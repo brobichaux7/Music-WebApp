@@ -41,7 +41,20 @@ const UserSchema = new mongoose.Schema({
         required: false,
         maxlength: [256, "{PATH} can not be more than 256 charaters"],
         default: "No bio yet"
-    }
+    },
+    albums : [
+        {
+            albumId: {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: "Album",
+            },
+            rating: {
+                type: Number,
+                min: 1,
+                max: 10,
+            },
+        },
+    ],
 }, {timestamps: true})
 
 UserSchema.virtual('confirmPassword')

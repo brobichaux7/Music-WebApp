@@ -19,7 +19,6 @@ require('dotenv').config();
 require("./config/mongoose.config")(DB);
 
 //Connect to the DB
-require("./routes/music.route")(app);
 require("./routes/users.route")(app);
 
 

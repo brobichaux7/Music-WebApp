@@ -47,14 +47,14 @@ const Home = () => {
         <Carousel.Item interval={5000}>
           <img
             className="d-block w-100"
-src="https://www.billboard.com/wp-content/uploads/media/tyler-the-creator-asap-rocky-potato-salad-MV-vid-2018-billboard-1548.jpg"
+            src="https://www.billboard.com/wp-content/uploads/media/tyler-the-creator-asap-rocky-potato-salad-MV-vid-2018-billboard-1548.jpg"
             alt="Image One"
           />
         </Carousel.Item>
         <Carousel.Item interval={5000}>
           <img
             className="d-block w-100"
-src="https://cloudfront-us-east-1.images.arcpublishing.com/ajc/YSFLLDLLQHM5HFBKEL2HDMJGOA.jpg"
+            src="https://cloudfront-us-east-1.images.arcpublishing.com/ajc/YSFLLDLLQHM5HFBKEL2HDMJGOA.jpg"
             alt="Image Two"
           />
         </Carousel.Item>
@@ -62,7 +62,7 @@ src="https://cloudfront-us-east-1.images.arcpublishing.com/ajc/YSFLLDLLQHM5HFBKE
         <Carousel.Item interval={5000}>
           <img
             className="d-block w-100"
-src="https://i.ytimg.com/vi/5hf5HOrJc-I/maxresdefault.jpg"
+            src="https://i.ytimg.com/vi/5hf5HOrJc-I/maxresdefault.jpg"
             alt="Image Two"
           />
         </Carousel.Item>
@@ -74,21 +74,21 @@ src="https://i.ytimg.com/vi/5hf5HOrJc-I/maxresdefault.jpg"
         <Carousel.Item>
         <img
             className="d-block w-100"
-src="https://assets.fontsinuse.com/static/use-media-items/52/51196/full-1500x1500/58f577f9/C9H8-PWUIAAzbQ2-jpg-large-e.jpeg"
+            src="https://assets.fontsinuse.com/static/use-media-items/52/51196/full-1500x1500/58f577f9/C9H8-PWUIAAzbQ2-jpg-large-e.jpeg"
             alt="Image One"
           />
         </Carousel.Item>
         <Carousel.Item>
         <img
             className="d-block w-100"
-src="https://images.complex.com/complex/images/c_fill,dpr_auto,f_auto,q_auto,w_1400/fl_lossy,pg_1/dqtevr2nbwvy486bt9mg/joji-smithereens-stream?fimg-ssr-default"
+            src="https://images.complex.com/complex/images/c_fill,dpr_auto,f_auto,q_auto,w_1400/fl_lossy,pg_1/dqtevr2nbwvy486bt9mg/joji-smithereens-stream?fimg-ssr-default"
             alt="Image One"
           />
         </Carousel.Item>
         <Carousel.Item>
         <img
             className="d-block w-100"
-src="https://upload.wikimedia.org/wikipedia/en/2/26/Cherry_Bomb_Tyler_the_Creator.png"
+            src="https://upload.wikimedia.org/wikipedia/en/2/26/Cherry_Bomb_Tyler_the_Creator.png"
             alt="Image One"
           />
         </Carousel.Item>
@@ -100,7 +100,7 @@ src="https://upload.wikimedia.org/wikipedia/en/2/26/Cherry_Bomb_Tyler_the_Creato
         <Carousel.Item>
         <img
             className="d-block w-100"
-src="https://media.tenor.com/_58JURguTykAAAAC/drake-drake-dancing.gif"
+            src="https://media.tenor.com/_58JURguTykAAAAC/drake-drake-dancing.gif"
             alt="Image One"
           />
         </Carousel.Item>
@@ -108,7 +108,7 @@ src="https://media.tenor.com/_58JURguTykAAAAC/drake-drake-dancing.gif"
         <Carousel.Item>
         <img
             className="d-block w-100"
-src="https://media.tenor.com/FJiASlrWtY8AAAAd/tyler-the-creator-sike.gif"
+            src="https://media.tenor.com/FJiASlrWtY8AAAAd/tyler-the-creator-sike.gif"
             alt="Image One"
           />
         </Carousel.Item>
@@ -116,7 +116,7 @@ src="https://media.tenor.com/FJiASlrWtY8AAAAd/tyler-the-creator-sike.gif"
         <Carousel.Item>
         <img
             className="d-block w-100"
-src="https://media.tenor.com/P98RZR_l9q4AAAAC/travis-scott-fire.gif"
+            src="https://media.tenor.com/P98RZR_l9q4AAAAC/travis-scott-fire.gif"
             alt="Image One"
           />
         </Carousel.Item>
