@@ -1,57 +1,18 @@
-/* ! USERPROFILE.JSX EDIT PROFILE (SEE WHAT THIS DOES) */
-  /* .scroll {
-    --size: 150px;
-  
-    display: grid;
-    grid-auto-flow: column;
-    gap: calc(var(--gap) / 2);
-    margin: 0;
+.dFlexBetween {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
 
-    overflow-x: auto;
-    overscroll-behavior-inline: contain;
-    
-    padding-inline: var(--gap);
-    scroll-padding-inline: var(--gap);
-    padding-block: calc(var(--gap) / 2);
+.bio2 {
+  text-align: center;
+  vertical-align: top;
+  width: 250px;
+  margin-left: 20px;
+}
 
-    text-decoration: none;
-    
-  } */
-
-  /* .scroll picture {
-    inline-size: 200px;
-    block-size: 200px;
-  }
-  
-  .scroll li {
-    display: inline-block;
-  }
-
-  .scroll > li:last-of-type figure {
-    position: relative;
-  
-  }
-
-  .scroll a {
-    text-decoration: none;
-    color: black
-  } */
-
-  .dFlexBetween {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 10px;
-  }
-
-  .bio2 {
-    text-align: center;
-    vertical-align: top;
-    width: 250px;
-    margin-left: 20px;
-  }
-
-  .profileRight {
-    width: 70%;
-    margin: 0 auto;
-  }
+.profileRight {
+  width: 70%;
+  margin: 0 auto;
+}

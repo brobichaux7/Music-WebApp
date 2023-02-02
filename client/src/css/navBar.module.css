@@ -1,4 +1,37 @@
-.dFlexCenter {
-    display: flex;
-    align-items: center;
-  }
+.height {
+  height: 45px;
+  color: lightgray;
+}
+
+.logo {
+  padding-left: 1%;
+}
+
+.logo img {
+  border-radius: 50%;
+}
+
+.left {
+  display: flex;
+  align-items: center;
+  color: lightgray !important;
+}
+
+.right {
+  padding-right: 1%;
+  display: flex;
+  align-items: center;
+}
+.right p {
+  padding-right: 5px;
+  padding-top: 18px;
+}
+
+.buttonColor {
+  background-color: black;
+  color: lightgray !important;
+}
+
+.flex {
+  display: flex;
+}

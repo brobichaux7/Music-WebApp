@@ -48,7 +48,7 @@ const AlbumForm = () => {
         {
           loggedIn ? <UserNavBar /> : <GuestNavBar />
         }
-    <div className={formStyle.searchAlbum}>
+    <div className={formStyle.search}>
         <h1>Search for Albums</h1>
         <form onSubmit={onSubmitHandler}>
             <input placeholder="What album do you want to search for?" type="text" onChange={e => setSearchItem(e.target.value)}/>

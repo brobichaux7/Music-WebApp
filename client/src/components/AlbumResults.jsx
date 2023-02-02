@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import axios from 'axios'
-import AlbumForm from './AlbumForm'
+import GuestNavBar from './GuestNavBar'
+import UserNavBar from './UserNavBar'
 import { useParams, useNavigate } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import {Table} from 'react-bootstrap'
@@ -14,6 +15,10 @@ const AlbumResults = () => {
   
     // result variables
 	const [results, setResults] = useState({});
+
+    // user variables
+    const [loggedIn, setLoggedIn] = useState(false);
+    const [user, setUser] = useState({});
 
     // if results are loaded or not variables
     const [loaded, setLoaded] =useState(false)
@@ -46,6 +51,23 @@ const AlbumResults = () => {
           });
 	}, [q])
 
+    useEffect(()=>{
+        axios.get("http://localhost:8000/api/users/checkUser", {withCredentials:true})
+            .then(res=>{
+                console.log("✅", res)
+                if(res.data.results){
+                    //this means the user is logged in and can accees this page
+                    setUser(res.data.results)
+                    setLoggedIn(true);
+                }
+            })
+            .catch(err=>{
+                //this means someone who is not logged in tried to access the dashboard
+                console.log("err when gettign logged in user", err)
+    
+            })
+    }, [])
+
     // redirects to album display page
     const goToAlbum = (i) => {
         console.log(i)
@@ -60,9 +82,13 @@ const AlbumResults = () => {
 
     return (
     <div className={generalStyle}>
-        {/* <AlbumForm/> */}
-        <h1>you are searching for {q} related albums</h1>
-        <h5>click <a onClick={() => goBack()}>here</a> to return back to search</h5>
+        {
+          loggedIn ? <UserNavBar /> : <GuestNavBar />
+        }
+        <div className={generalStyle.center}>
+            <h1>you are searching for {q} related albums</h1>
+            <h5>click <a onClick={() => goBack()}>here</a> to return back to search</h5>
+        </div>
         {
             loaded ? (
             <Table bordered hover className={generalStyle.tableWidth}>

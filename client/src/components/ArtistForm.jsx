@@ -46,7 +46,7 @@ const ArtistForm = () => {
         {
           loggedIn ? <UserNavBar /> : <GuestNavBar />
         }
-    <div className={formStyle.searchArtist}>
+    <div className={formStyle.search}>
         <h1>Search for Artists</h1>
         <form onSubmit={onSubmitHandler}>
             <input placeholder="What artist would you like to search for?" type="text" onChange={e => setSearchItem(e.target.value)}/>
