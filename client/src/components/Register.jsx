@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import {useNavigate} from 'react-router-dom'
 import axios from 'axios'
-import musicStyle from './Home.module.css'
+import registerStyle from '../css/register.module.css'
 
 
 const Register = () => {
@@ -47,9 +47,9 @@ const Register = () => {
     }
     
     return(
-        <div className={musicStyle.bGround}>
-            <div className={musicStyle.registerBody}>
-            <div className={musicStyle.register}>
+        <div className={registerStyle.bGround}>
+            <div className={registerStyle.registerBody}>
+            <div className={registerStyle.register}>
             <img src='https://media.tenor.com/FkvBwOZT4LQAAAAC/pepe-pepe-the-frog.gif'/>
             <h4>REGISTER</h4>
             {errors.map((err, index) => <p key={index}>{err}</p>)}

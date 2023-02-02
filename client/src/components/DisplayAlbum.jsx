@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios';
 import { useParams, useNavigate, Link } from 'react-router-dom';
-import musicStyle from './Home.module.css'
 import {Table} from 'react-bootstrap'
 import GuestNavBar from './GuestNavBar';
 import UserNavBar from './UserNavBar';
+import generalStyle from '../css/general.module.css'
+import displayStyle from '../css/displayOne.module.css'
+import loadStyle from '../css/loadCircle.module.css'
 
 const DisplayAlbum = () => {
 
@@ -79,32 +81,32 @@ const DisplayAlbum = () => {
     }
 
   return (
-    <fieldset className={musicStyle.bGround}>
+    <fieldset className={generalStyle}>
         {
             loggedIn ? <UserNavBar /> : <GuestNavBar />
         }
-        <div className={musicStyle.displayCenter}>
+        <div className={displayStyle.displayCenter}>
             
             <div>
                 {
                     loaded ? (
-                    <div className={musicStyle.container}>
-                        <div className={musicStyle.spin} id={musicStyle.loader}></div>
-                        <div className={musicStyle.spin} id={musicStyle.loader2}></div>
-                        <div className={musicStyle.spin} id={musicStyle.loader3}></div>
-                        <div className={musicStyle.spin} id={musicStyle.loader4}></div>
-                        <span id={musicStyle.text}>LOADING...</span>
+                    <div className={loadStyle.container}>
+                        <div className={loadStyle.spin} id={loadStyle.loader}></div>
+                        <div className={loadStyle.spin} id={loadStyle.loader2}></div>
+                        <div className={loadStyle.spin} id={loadStyle.loader3}></div>
+                        <div className={loadStyle.spin} id={loadStyle.loader4}></div>
+                        <span id={loadStyle.text}>LOADING...</span>
                     </div>)
-                    : <div className={musicStyle.dFlex}>
+                    : <div className={displayStyle.dFlex}>
                         <div>
                             <h1><b>{albumInfo.name}</b></h1>
                             <h5>By: <a onClick={goToArtist}>{albumInfo.artists[0].name}</a></h5>
                             <p>Release Date: {albumInfo.release_date}</p>
-                            <div className={musicStyle.dFlexAlbum}>
+                            <div className={displayStyle.dFlexAlbum}>
                                 <div>
                                     <img src={albumInfo.images[0].url} alt=" " width="200"/>
                                 </div>
-                                <div className={musicStyle.centerText}>
+                                <div className={displayStyle.centerText}>
                                     <p><b>Label:</b> {albumInfo.label}</p>
                                     <p><b>Number of Songs:</b> {albumInfo.total_tracks}</p>
                                     <p><b>Popularity Rating:</b> {albumInfo.popularity}</p>
@@ -123,7 +125,7 @@ const DisplayAlbum = () => {
                     </div>
                 }
             </div>
-            <Table bordered hover className={musicStyle.tableBgColor}>
+            <Table bordered hover className={generalStyle.tableWidth}>
                 <thead>
                     <tr>
                         <th scope='col'>Track Number</th>

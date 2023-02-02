@@ -1,10 +1,10 @@
 import React, {useEffect, useState} from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
-import musicStyle from './Home.module.css'
 import axios from 'axios'
 import UserNavBar from './UserNavBar'
 import { useNavigate, useParams } from 'react-router-dom'
 import { isObjectIdOrHexString } from 'mongoose'
+import generalStyle from '../css/general.module.css'
 
 const EditProfile = () => {
 
@@ -71,7 +71,7 @@ const EditProfile = () => {
     };
 
   return (
-    <div className={musicStyle.bGround}>
+    <div className={generalStyle}>
       <UserNavBar/>
       <div className="container bootstrap snippets bootdey">
         <h1>Edit Profile:</h1>

@@ -4,7 +4,8 @@ import ArtistForm from './ArtistForm'
 import { useParams, useNavigate } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import {Table} from 'react-bootstrap'
-import musicStyle from './Home.module.css'
+import generalStyle from '../css/general.module.css'
+import loadStyle from '../css/loadCircle.module.css'
 
 const ArtistResults = () => {
 
@@ -50,14 +51,14 @@ const ArtistResults = () => {
     }
 
     return (
-    <div className={musicStyle.bGround}>
+    <div className={generalStyle}>
         {/* <ArtistForm /> */}
         <h1>you are searching for {q} and related artists</h1>
-        <h5>click <a>here</a> to return back to search</h5>
+        <h5><a href='/search/artists/'>click here to return back to search</a></h5>
         {
             loaded ? (
                 <div>
-                    <Table bordered hover className={musicStyle.tableWidth}>
+                    <Table bordered hover className={generalStyle.tableWidth}>
                         <thead>
                             <tr>
                                 <th scope='col' width="10%"></th>
@@ -84,12 +85,12 @@ const ArtistResults = () => {
                     </Table><br />
                 </div>
             ): (
-            <div className={musicStyle.container}>
-                <div className={musicStyle.spin} id={musicStyle.loader}></div>
-                <div className={musicStyle.spin} id={musicStyle.loader2}></div>
-                <div className={musicStyle.spin} id={musicStyle.loader3}></div>
-                <div className={musicStyle.spin} id={musicStyle.loader4}></div>
-                <span id={musicStyle.text}>LOADING...</span>
+            <div className={loadStyle.container}>
+                <div className={loadStyle.spin} id={loadStyle.loader}></div>
+                <div className={loadStyle.spin} id={loadStyle.loader2}></div>
+                <div className={loadStyle.spin} id={loadStyle.loader3}></div>
+                <div className={loadStyle.spin} id={loadStyle.loader4}></div>
+                <span id={loadStyle.text}>LOADING...</span>
             </div>
         )}
     </div>

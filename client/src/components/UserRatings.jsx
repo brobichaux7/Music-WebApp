@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react'
 import axios from 'axios';
 import UserNavBar from './UserNavBar';
 import GuestNavBar from './GuestNavBar';
-import musicStyle from './Home.module.css'
+import generalStyle from '../css/general.module.css'
 
 const UserRatings = () => {
   
@@ -28,13 +28,10 @@ const UserRatings = () => {
 }, [])
 
     return (
-    <div className={musicStyle.bGround}>
+    <div className={generalStyle}>
         {
             loggedIn ? <UserNavBar /> : <GuestNavBar />
         }
-        <div>
-            <h1 className={musicStyle.searchArtist}>{user.name}'s Music Taste</h1>
-        </div>
     </div>
   )
 }

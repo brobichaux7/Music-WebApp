@@ -1,0 +1,46 @@
+.loginBody{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(178.6deg, rgb(20, 36, 50) 11.8%, rgb(124, 143, 161) 83.8%);
+    padding-bottom: 272px;
+  }
+  
+  .login {
+      text-align: center;
+      margin-top: 7%;
+      background-color: #7C8FA1;
+      padding-top: 20px;
+      padding-bottom: 15px;
+      width: 30%;
+      border-radius: 10px;
+      position: relative;
+  }
+  
+  .login h4 {
+      margin-right: 250px;
+  }
+  
+  .login p {
+      margin-top: 80px;
+  }
+  
+  .login input {
+      margin-top: 20px;
+      padding-right: 60px;
+  
+  }
+  
+  .login button {
+      margin-top: 60px;
+  }
+  
+  .login img {
+      height: 80px;
+      width: 80px;
+      margin-bottom: 70px;
+  }
+  
+  .login label {
+      margin-right: 20px;
+  }  

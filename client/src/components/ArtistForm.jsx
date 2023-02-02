@@ -1,9 +1,10 @@
 import React, {useState, useEffect} from 'react'
 import { useNavigate } from 'react-router-dom';
-import musicStyle from './Home.module.css'
 import axios from 'axios';
 import GuestNavBar from './GuestNavBar';
 import UserNavBar from './UserNavBar';
+import generalStyle from '../css/general.module.css'
+import formStyle from '../css/form.module.css'
 
 const ArtistForm = () => {
 
@@ -41,11 +42,11 @@ const ArtistForm = () => {
   }, [])
 
     return (
-        <div className={musicStyle.bGround}>
+        <div className={generalStyle} style={{"height": "100vh"}}>
         {
           loggedIn ? <UserNavBar /> : <GuestNavBar />
         }
-    <div className={musicStyle.searchArtist}>
+    <div className={formStyle.searchArtist}>
         <h1>Search for Artists</h1>
         <form onSubmit={onSubmitHandler}>
             <input placeholder="What artist would you like to search for?" type="text" onChange={e => setSearchItem(e.target.value)}/>

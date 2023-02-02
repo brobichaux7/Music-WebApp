@@ -3,9 +3,10 @@ import axios from 'axios';
 import GuestNavBar from './GuestNavBar';
 import UserNavBar from './UserNavBar';
 import { useNavigate } from 'react-router-dom';
-import musicStyle from './Home.module.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import {Table} from 'react-bootstrap'
+import generalStyle from '../css/general.module.css'
+import profileStyle from '../css/userProfile.module.css'
 
 const UserProfile = () => {
   
@@ -36,22 +37,22 @@ const UserProfile = () => {
 
 
   return (
-    <div className={musicStyle.bGround}>
+    <div className={generalStyle}>
       {
         loggedIn ? <UserNavBar /> : <GuestNavBar />
       }
-      <div className={musicStyle.container}>
-        <div className={musicStyle.dFlexBetween}>
+      <div className={generalStyle.container}>
+        <div className={profileStyle.dFlexBetween}>
           <h1>{user.name}'s Profile</h1>
-          <a className={musicStyle.scroll} href={`/edit/profile/${user._id}`}><p>⚙️Edit Profile</p></a>
+          <a className={profileStyle.scroll} href={`/edit/profile/${user._id}`}><p>⚙️Edit Profile</p></a>
         </div><hr />
-        <div className={musicStyle.dFlex}>
+        <div className={profileStyle.dFlex}>
           <img src={user.image} alt="https://i.ibb.co/4pDNDk1/avatar.png" width="15%"/>
-          <div className={musicStyle.profileRight}>
-            <p className={musicStyle.bio2}>
+          <div className={profileStyle.profileRight}>
+            <p className={profileStyle.bio2}>
               {user.bio}
             </p>
-            <Table bordered hover className={musicStyle.tableText}>
+            <Table bordered hover className={profileStyle.tableText}>
               <thead>
                 <tr>
                   <th scope='col'>#</th>

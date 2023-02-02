@@ -4,7 +4,8 @@ import AlbumForm from './AlbumForm'
 import { useParams, useNavigate } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import {Table} from 'react-bootstrap'
-import musicStyle from './Home.module.css'
+import generalStyle from '../css/general.module.css'
+import loadStyle from '../css/loadCircle.module.css'
 
 
 
@@ -58,13 +59,13 @@ const AlbumResults = () => {
     }
 
     return (
-    <div className={musicStyle.bGround}>
+    <div className={generalStyle}>
         {/* <AlbumForm/> */}
         <h1>you are searching for {q} related albums</h1>
         <h5>click <a onClick={() => goBack()}>here</a> to return back to search</h5>
         {
             loaded ? (
-            <Table bordered hover className={musicStyle.tableWidth}>
+            <Table bordered hover className={generalStyle.tableWidth}>
                 <thead>
                     <tr>
                         <th scope='col'>Album Cover</th>
@@ -88,12 +89,12 @@ const AlbumResults = () => {
                     }
                 </tbody>
             </Table>) : (
-            <div className={musicStyle.container}>
-                <div className={musicStyle.spin} id={musicStyle.loader}></div>
-                <div className={musicStyle.spin} id={musicStyle.loader2}></div>
-                <div className={musicStyle.spin} id={musicStyle.loader3}></div>
-                <div className={musicStyle.spin} id={musicStyle.loader4}></div>
-                <span id={musicStyle.text}>LOADING...</span>
+            <div className={loadStyle.container}>
+                <div className={loadStyle.spin} id={loadStyle.loader}></div>
+                <div className={loadStyle.spin} id={loadStyle.loader2}></div>
+                <div className={loadStyle.spin} id={loadStyle.loader3}></div>
+                <div className={loadStyle.spin} id={loadStyle.loader4}></div>
+                <span id={loadStyle.text}>LOADING...</span>
             </div>
         )}
     </div>

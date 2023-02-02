@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios';
 import { useParams, Link, useNavigate } from 'react-router-dom';
-import musicStyle from './Home.module.css'
 import {Table} from 'react-bootstrap'
 import GuestNavBar from './GuestNavBar';
 import UserNavBar from './UserNavBar';
+import generalStyle from '../css/general.module.css'
+import displayStyle from '../css/displayOne.module.css'
+import loadStyle from '../css/loadCircle.module.css'
+import profileStyle from '../css/userProfile.module.css'
 
 
 const DisplayArtist = () => {
@@ -86,17 +89,17 @@ const DisplayArtist = () => {
     }
 
   return (
-    <fieldset className={musicStyle.bGround}>
+    <fieldset className={generalStyle}>
         {
             loggedIn ? <UserNavBar /> : <GuestNavBar />
         }
-        <div className={musicStyle.displayCenter}>
+        <div className={displayStyle.displayCenter}>
             <div>
                 {
                      loaded && artistInfo.discography !== undefined ? (
 
                         <div>
-                            <div className={musicStyle.dFlexAlbum}>
+                            <div className={displayStyle.dFlexAlbum}>
                                 <div>
                                     <div>
                                         <h1><b>{artistInfo.profile.name}</b></h1>
@@ -106,21 +109,21 @@ const DisplayArtist = () => {
                                         <p>Monthly Listeners: {artistInfo.stats.monthlyListeners}</p>
                                         <p>World Rank: {artistInfo.stats.worldRank}</p>
                                     </div>
-                                    <p className={musicStyle.bio} dangerouslySetInnerHTML={createMarkup()} />
+                                    <p className={displayStyle.bio} dangerouslySetInnerHTML={createMarkup()} />
                                 </div>
                         </div>) : (
-                                <div className={musicStyle.container}>
-                                    <div className={musicStyle.spin} id={musicStyle.loader}></div>
-                                    <div className={musicStyle.spin} id={musicStyle.loader2}></div>
-                                    <div className={musicStyle.spin} id={musicStyle.loader3}></div>
-                                    <div className={musicStyle.spin} id={musicStyle.loader4}></div>
-                                    <span id={musicStyle.text}>LOADING...</span>
+                                <div className={loadStyle.container}>
+                                    <div className={loadStyle.spin} id={loadStyle.loader}></div>
+                                    <div className={loadStyle.spin} id={loadStyle.loader2}></div>
+                                    <div className={loadStyle.spin} id={loadStyle.loader3}></div>
+                                    <div className={loadStyle.spin} id={loadStyle.loader4}></div>
+                                    <span id={loadStyle.text}>LOADING...</span>
                                 </div>
                                 ) 
                 }
             </div>
             <h1>Top Songs</h1>
-            <Table bordered hover className={musicStyle.tableBgColor}>
+            <Table bordered hover className={generalStyle.tableWidth}>
                 <thead>
                     <tr>
                         <th scope='col'></th>
@@ -144,7 +147,7 @@ const DisplayArtist = () => {
                     }
                 </tbody>
             </Table>
-            <div className={musicStyle.scroll}>
+            <div className={profileStyle.scroll}>
             {
                 related.map((a, i) => {
                     return (
