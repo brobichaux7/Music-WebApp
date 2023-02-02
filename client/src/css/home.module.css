@@ -1,0 +1,36 @@
+.topCarousel {
+    margin-bottom: 50px;
+    padding: 50px;
+    background-color: #484cb5;
+}
+
+.topCarousel img {
+    height: 400px;
+    object-fit: contain !important;
+}
+
+.albumCarousel {
+    margin-bottom: 50px;
+    padding: 50px;
+    background-color: #484cb5;
+}
+
+.albumCarousel img {
+    height: 200px;
+    object-fit: contain !important;
+
+}
+
+.artistCarousel{
+    padding: 50px;
+    background-color: #484cb5;
+}
+
+.artistCarousel img {
+    height: 200px;
+    object-fit: contain !important;
+}
+
+.homeBody {
+    background-color: #484cb5;
+}

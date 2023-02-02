@@ -1,10 +1,10 @@
 import React, {useState, useEffect} from 'react'
 import {Carousel} from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
-import musicStyle from './Home.module.css'
 import UserNavBar from './UserNavBar'
 import GuestNavBar from './GuestNavBar'
 import axios from 'axios'
+import homeStyle from '../css/home.module.css'
 
 const Home = () => {
 
@@ -37,12 +37,12 @@ const Home = () => {
     animate={{ opacity: 1 }}
     exit={{ opacity: 0 }}
     transition={{delay:1.5, duration: 3.5}}> */}
-    <div className={musicStyle.homeBody}>
+    <div className={homeStyle.homeBody}>
     {
       loggedIn ? <UserNavBar /> : <GuestNavBar />
     }
 
-      <div className={musicStyle.topCarousel}>
+      <div className={homeStyle.topCarousel}>
       <Carousel>
         <Carousel.Item interval={5000}>
           <img
@@ -69,7 +69,7 @@ src="https://i.ytimg.com/vi/5hf5HOrJc-I/maxresdefault.jpg"
       </Carousel>
       </div>
 
-      <div className={musicStyle.albumCarousel}>
+      <div className={homeStyle.albumCarousel}>
       <Carousel>
         <Carousel.Item>
         <img
@@ -95,7 +95,7 @@ src="https://upload.wikimedia.org/wikipedia/en/2/26/Cherry_Bomb_Tyler_the_Creato
       </Carousel>
       </div>
 
-      <div className={musicStyle.artistCarousel}>
+      <div className={homeStyle.artistCarousel}>
       <Carousel>
         <Carousel.Item>
         <img

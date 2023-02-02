@@ -2,7 +2,7 @@ import React from 'react'
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios';
-import musicStyle from './Home.module.css'
+import loginStyle from '../css/login.module.css'
 
 const Login = () => {
 
@@ -41,9 +41,9 @@ const Login = () => {
             })}
 
     return(
-        <div className={musicStyle.bGround}>
-            <div className={musicStyle.loginBody}>
-            <div className={musicStyle.login}>
+        <div className={loginStyle.bGround}>
+            <div className={loginStyle.loginBody}>
+            <div className={loginStyle.login}>
             <img src='https://media.tenor.com/FkvBwOZT4LQAAAAC/pepe-pepe-the-frog.gif'/>
             <h4>LOG IN</h4>
             {errors.map((error,index) => <p key ={index}>{error}</p>)}

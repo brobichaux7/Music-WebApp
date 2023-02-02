@@ -3,7 +3,6 @@ import AlbumResults from './components/AlbumResults';
 import Home from './components/Home';
 import AlbumForm from './components/AlbumForm';
 import Login from './components/Login';
-import Test from  './components/Test'
 import Register from './components/Register';
 import ArtistForm from './components/ArtistForm';
 import ArtistResults from './components/ArtistResults';
@@ -23,8 +22,6 @@ function App() {
       <Route path='/login' element={<Login/>}/>
 
       <Route path='/register' element={<Register/>}/>
-
-      <Route path='/1' element={<Test/>}/>
       
       <Route path='/search/albums' element={<AlbumForm />} />
       

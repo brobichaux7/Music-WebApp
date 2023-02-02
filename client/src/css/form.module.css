@@ -1,0 +1,18 @@
+.searchAlbum {
+    margin: 80px auto;
+    text-align: center;
+}
+
+.searchAlbum input {
+    height: 40px;
+    width: 300px;
+    margin-right: 10px;
+}
+
+.searchAlbum button {
+    height: 37px;
+}
+
+.searchAlbum h1 {
+    margin-bottom: 50px;
+}

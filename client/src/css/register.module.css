@@ -1,0 +1,48 @@
+.registerBody{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(178.6deg, rgb(20, 36, 50) 11.8%, rgb(124, 143, 161) 83.8%);
+    padding-bottom: 272px;
+  }
+  
+  .register {
+    text-align: center;
+    margin-top: 7%;
+    background-color: #7C8FA1;
+    padding-top: 20px;
+    padding-bottom: 15px;
+    width: 30%;
+    border-radius: 10px;
+    position: relative;
+  }
+  
+  .register h4 {
+      margin-right: 240px;
+  }
+  
+  .register p {
+      margin-top: 80px;
+      margin-left: 80px;
+  }
+  
+  .register input {
+      margin-top: 20px;
+      padding-right: 60px;
+  
+  }
+  
+  .register button {
+      margin-top: 60px;
+      margin-left: 220px;
+  }
+  
+  .register img {
+      height: 80px;
+      width: 80px;
+      margin-bottom: 70px;
+  }
+  
+  .register label {
+      margin-right: 20px;
+  }

@@ -1,0 +1,13 @@
+.displayCenter {
+    width: 70%;
+    margin: 10px auto;
+}
+
+.centerText {
+    margin-left: 20px;
+}
+
+.bio {
+    width: 55%;
+    margin: 5px auto;
+  }
