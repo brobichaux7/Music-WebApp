@@ -1,5 +1,4 @@
 .height {
-  height: 45px;
   color: lightgray;
 }
 
@@ -14,7 +13,7 @@
 .left {
   display: flex;
   align-items: center;
-  color: lightgray !important;
+  color: lightgray;
 }
 
 .right {
@@ -30,8 +29,4 @@
 .buttonColor {
   background-color: black;
   color: lightgray !important;
-}
-
-.flex {
-  display: flex;
 }
