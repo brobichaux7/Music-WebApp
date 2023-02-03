@@ -15,7 +15,7 @@ const DisplayAlbum = () => {
     const [songs, setSongs] = useState([]);
 
     // rating variables
-    const [rating, setRating] = useState(1);
+    const [rating, setRating] = useState(0);
     const [listened, setListened] = useState(false);
 
     // if results are loaded or not variables
@@ -76,8 +76,18 @@ const DisplayAlbum = () => {
         navigate('/artist/' + albumInfo.artists[0].id) 
     }
 
-    const listenedCheck = () => {
-        setListened(true);
+    const listenedCheck = (e) => {
+        setListened(e.target.checked);
+    }
+
+    const rateAlbum = (e) => {
+        e.preventDefualt();
+        const ratedAlbum = {
+            albumId,
+            hasListened,
+            
+        }
+        
     }
 
   return (

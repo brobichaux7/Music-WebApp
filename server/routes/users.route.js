@@ -9,4 +9,5 @@ module.exports = app => {
     app.get('/api/users/:id', UserController.findOneUser);
     app.put('/api/users/update/:id', UserController.updateUser);
     app.get('/api/users', UserController.findAllUsers);
+
 }
