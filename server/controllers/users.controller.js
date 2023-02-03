@@ -19,12 +19,10 @@ module.exports.createNewUser = (requestObj,responseObj) => {
             console.log("❌Server Error")
             responseObj.status(400).json(err)
         });
-    
 }
 
 
 //Login
-
 module.exports.login = async(req, res) => {
     const user = await User.findOne({ email: req.body.email });
     if(user === null) {
@@ -51,7 +49,6 @@ module.exports.login = async(req, res) => {
 }
 
 //Get logged in user
-
 module.exports.getLoggedInUser = (requestObj,responseObj)=>{
 
     const decodedJWT = jwt.decode(requestObj.cookies.usertoken, {complete:true})
@@ -66,7 +63,6 @@ module.exports.getLoggedInUser = (requestObj,responseObj)=>{
 }
 
 //Logout
-
 module.exports.logout = (req, res) => {
     res.clearCookie('usertoken');
     res.sendStatus(200);

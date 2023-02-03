@@ -32,29 +32,30 @@ const UserSchema = new mongoose.Schema({
 
     image: {
         type: String,
-        required: false,
         default: "https://i.ibb.co/4pDNDk1/avatar.png"
     },
 
     bio: {
         type: String,
-        required: false,
         maxlength: [256, "{PATH} can not be more than 256 charaters"],
         default: "No bio yet"
     },
-    albums : [
+    rating: [
         {
             albumId: {
                 type: mongoose.Schema.Types.ObjectId,
-                ref: "Album",
+                ref: 'Album'
             },
             rating: {
                 type: Number,
                 min: 1,
-                max: 10,
+                max: 10
             },
-        },
-    ],
+            review: {
+                type: String
+            }
+        }
+    ]
 }, {timestamps: true})
 
 UserSchema.virtual('confirmPassword')
