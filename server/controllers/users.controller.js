@@ -1,7 +1,30 @@
 const jwt = require("jsonwebtoken")
 const bcrypt = require('bcrypt')
+const multer = require('multer');
 // import the model to make queris to the DB
 const User = require("../models/users.model")
+
+module.exports.updateProfile = async (req, res) => {
+    const { id } = req.user;
+    const { name, email, bio } = req.body;
+    const file = req.file;
+
+    try {
+        const user = await User.findById(id);
+
+        user.name = name;
+        user.email = email;
+        user.bio = bio;
+        if (file) {
+            user.image = `/uploads/${file.filename}`;
+        }
+
+        await user.save();
+        res.status(200).json({ message: 'Profile updated successfully'});
+    } catch (error) {
+        res.status(500).json({ message: 'Error updating profile' });
+    }
+};
 
 //Register
 module.exports.createNewUser = (requestObj,responseObj) => {
@@ -20,7 +43,6 @@ module.exports.createNewUser = (requestObj,responseObj) => {
             responseObj.status(400).json(err)
         });
 }
-
 
 //Login
 module.exports.login = async(req, res) => {
@@ -105,3 +127,4 @@ module.exports.updateUser = (requestObj,responseObj) => {
             responseObj.json(err)
         });
 }
+

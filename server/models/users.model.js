@@ -5,7 +5,7 @@ const jwt = require("jsonwebtoken")
 
 // The Schema
 const UserSchema = new mongoose.Schema({
-    name:{
+    username:{
         type: String,
         required: [true, "{PATH} is required"],
         unique: [true, "Username already in use"],

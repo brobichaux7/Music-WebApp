@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import {Navbar, Nav, NavItem, Container, NavDropdown} from 'react-bootstrap'
+import {Navbar, Nav} from 'react-bootstrap'
 import {useNavigate} from 'react-router-dom'
 import axios from 'axios'
 import navBarStyle from '../css/navBar.module.css'
@@ -37,7 +37,7 @@ const UserNavBar = () => {
         }
 
     return (
-        <Navbar collapseOnSelect fixed='top' expand="lg" bg="dark" variant="dark">
+        <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
             <Navbar.Brand href="/" className={navBarStyle.logo}>
                 <img className={navBarStyle.frog} src="https://media.tenor.com/FkvBwOZT4LQAAAAC/pepe-pepe-the-frog.gif" alt="Aura" width="40px"/>
             </Navbar.Brand>
@@ -53,7 +53,7 @@ const UserNavBar = () => {
                     <img src={user.image} alt="" width="30"/>
                 </Nav.Link>
                 <Nav.Link href={`/profile/${user._id}`}>
-                    <p> {user.name}</p>
+                    <p> {user.username}</p>
                 </Nav.Link>
                 <Nav.Link onClick={() => logout()}>Logout</Nav.Link>
             </Nav>

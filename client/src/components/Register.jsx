@@ -7,7 +7,7 @@ import registerStyle from '../css/register.module.css'
 const Register = () => {
     
     // user variables
-    const [name, setName] = useState("");
+    const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
@@ -22,7 +22,7 @@ const Register = () => {
     const createUser = (e) => {
         e.preventDefault();
         const newUser = {
-            name,
+            username,
             email,
             password,
             confirmPassword
@@ -34,27 +34,27 @@ const Register = () => {
             navigate('/')
         })
         .catch(error => {
-            console.log("Something Went Wrong")
+            console.log("Register Error")
             console.log(error)
             const errorResponse = error.response.data.errors; // Get the errors from err.response.data
-                const errorArr = []; // Define a temp error array to push the messages in
-                for (const key of Object.keys(errorResponse)) { // Loop through all errors and get the messages
-                    errorArr.push(errorResponse[key].message)
-                }
-                // Set Errors
-                setErrors(errorArr);
+            const errorArr = []; // Define a temp error array to push the messages in
+            for (const key of Object.keys(errorResponse)) { // Loop through all errors and get the messages
+                errorArr.push(errorResponse[key].message)
+            }
+            // Set Errors
+            setErrors(errorArr);
         }) 
     }
     
     return(
         <div className={registerStyle.registerBody}>
             <div className={registerStyle.register}>
-                <img src='https://media.tenor.com/FkvBwOZT4LQAAAAC/pepe-pepe-the-frog.gif'/>
+                <img src='https://media.tenor.com/FkvBwOZT4LQAAAAC/pepe-pepe-the-frog.gif' alt="Aura"/>
                 <h4>REGISTER</h4>
-                {errors.map((err, index) => <p key={index}>{err}</p>)}
+                {errors.map((err, index) => <p key={index} style={{color: "red"}}>{err}</p>)}
                 <form onSubmit={createUser}>
                     <label>Username:</label>
-                    <input type="text" onChange={e => setName(e.target.value)} value={name}/> <br/>
+                    <input type="text" onChange={e => setUsername(e.target.value)} value={username}/> <br/>
                     <label>Email:</label>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" onChange={e => setEmail(e.target.value)} value={email}/> <br/>
                     <label>Password:</label>
