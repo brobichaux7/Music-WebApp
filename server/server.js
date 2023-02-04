@@ -5,9 +5,6 @@ const cookieParser = require('cookie-parser');
 const PORT = 8000;
 const DB = "music"
 
-//! LOOK AT MULTER FOR PROFILE PICTURE UPLOADING
-
-
 //----- MiddleWare -----
 app.use(cors({credentials: true, origin: 'http://localhost:3000'}), express.json(), express.urlencoded({extended:true}));
 app.use(cookieParser());

@@ -80,15 +80,15 @@ const DisplayAlbum = () => {
         setListened(e.target.checked);
     }
 
-    const rateAlbum = (e) => {
-        e.preventDefualt();
-        const ratedAlbum = {
-            albumId,
-            hasListened,
+    // const rateAlbum = (e) => {
+    //     e.preventDefualt();
+    //     const ratedAlbum = {
+    //         albumId,
+    //         hasListened,
             
-        }
+    //     }
         
-    }
+    // }
 
   return (
     <fieldset className={generalStyle}>
